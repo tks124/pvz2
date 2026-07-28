@@ -1,42 +1,40 @@
-
- 
-<头>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PvZ2 高级创作 - 关卡</title>
-    <样式>
+    <title>PvZ2 高级创作 - 关卡地图ID</title>
+    <style>
         /* 全局样式 */
-        身体 {
-            字体：'Segoe UI'，Tahoma，Geneva，Verdana，无衬线;
-            背景颜色: #f4f6f9; /* 浅灰背景 */
-            边距：0;
-             
-            显示：伸缩;
-            文本对齐：居中;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
         }
 
-        .容器 {
-            最大宽度：1200像素;
-            宽度：100%;
+        .container {
+            max-width: 1300px;
+            width: 100%;
         }
 
-         
-            文本对齐：居中;
-            颜色: #333;
-            下边距：40像素;
-            字体大小：28像素;
-            字体粗细：600;
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 28px;
+            font-weight: 600;
         }
 
         /* 核心布局：Flexbox 实现从左到右排列 */
-        /* 因为您的要求是：图3(最左) -> 图2(中) -> 图1(最右) */
-        /* 所以我在HTML里会按照这个顺序写，CSS负责让它们横向排列 */
-        .卡片行 {
-            显示：伸缩;
-             flex-direction  :  row ; /* 水平排列 */
-            justify-content: center; /* 居中显示 */
-            gap: 25px; /* 卡片之间的间距 */
-            flex-wrap: wrap; /* 如果屏幕太小，允许换行 */
+        .card-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
         }
 
         /* 单个卡片样式 */
@@ -44,7 +42,7 @@
             background: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            width: 320px; /* 固定宽度，保持整齐 */
+            width: 280px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -53,15 +51,15 @@
         }
 
         .card:hover {
-            transform: translateY(-5px); /* 鼠标悬停微微上浮 */
+            transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
         /* 顶部紫色横幅 */
         .card-header {
-            背景: 线性渐变(135度, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
             font-size: 18px;
             font-weight: bold;
@@ -74,7 +72,7 @@
         /* 卡片内容区域 */
         .card-body {
             padding: 20px;
-            flex-grow: 1; /* 让内容区自动填充剩余空间 */
+            flex-grow: 1;
         }
 
         .greeting {
@@ -93,9 +91,9 @@
         /* 信息块样式 (名称、ID等) */
         .info-block {
             background-color: #f8f9fa;
-            border-left: 4px solid #667eea; /* 左侧蓝条装饰 */
-            padding: 12px 15px;
-            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            padding: 10px 15px;
+            margin-bottom: 12px;
             border-radius: 0 6px 6px 0;
         }
 
@@ -110,26 +108,23 @@
         }
 
         .info-value {
-            font-size: 16px;
+            font-size: 15px;
             color: #2c3e50;
-            过渡：变换 0.2 秒;
-            word-break: break-all; /* 防止长数字溢出 */
+            word-break: break-all;
         }
 
         /* 针对 ID 的特殊样式 */
         .id-link {
             color: #2980b9;
-            text-decoration: underline;
-            cursor: pointer;
-            font-family: monospace; /* 等宽字体适合显示数字 */
-            font-size: 15px;
+            font-family: monospace;
+            font-size: 14px;
         }
 
         /* 底部温馨提示区域 */
         .tips-section {
-            background-color: #e3f2fd; /* 浅蓝色背景 */
+            background-color: #e3f2fd;
             padding: 15px;
-            margin-top: auto; /* 推到底部 */
+            margin-top: auto;
             border-top: 1px solid #bbdefb;
         }
 
@@ -147,49 +142,40 @@
             font-size: 12px;
             color: #444;
             margin: 0;
-            padding-left: 20px; /* 列表缩进 */
+            padding-left: 20px;
         }
-
-        /* 图标模拟 (用Emoji代替图片，方便复制) */
+        
         .icon { font-style: normal; }
-
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>植物大战僵尸2 - 高级创作地图</h1>
+    <h1>植物大战僵尸2 - 高级创作地图ID</h1>
 
     <div class="card-row">
 
-        <!-- ================= 第一列（对应原图3：摇滚年代-第26天） ================= -->
+        <!-- 卡片 1: 摇滚年代-第26天 -->
         <div class="card">
             <div class="card-header">
-                <span class="icon">🎉</span>地图ID
+                <span class="icon">🎉</span> 地图ID
             </div>
             <div class="card-body">
                 <div class="greeting">你好 <strong>用户</strong>,</div>
                 <div class="congrats">以下就是地图ID：</div>
-
-                <!-- 关卡名称 -->
                 <div class="info-block">
                     <div class="info-label"><span class="icon">📝</span> 关卡名称</div>
                     <div class="info-value">摇滚年代-第26天</div>
                 </div>
-
-                <!-- Android ID -->
                 <div class="info-block">
                     <div class="info-label"><span class="icon">🤖</span> Android 关卡 ID</div>
                     <div class="info-value"><span class="id-link">192013210</span></div>
                 </div>
-
-                <!-- iOS ID -->
                 <div class="info-block">
                     <div class="info-label"><span class="icon">🍎</span> iOS 关卡 ID</div>
                     <div class="info-value"><span class="id-link">44073977</span></div>
                 </div>
             </div>
-            <!-- 温馨提示 (已补全) -->
             <div class="tips-section">
                 <div class="tips-title"><span class="icon">💡</span> 温馨提示:</div>
                 <ul class="tips-content">
@@ -199,7 +185,7 @@
             </div>
         </div>
 
-        <!-- ================= 第二列（对应原图2：功夫世界-26天） ================= -->
+        <!-- 卡片 2: 功夫世界-26天 -->
         <div class="card">
             <div class="card-header">
                 <span class="icon">🎉</span> 地图ID
@@ -207,26 +193,19 @@
             <div class="card-body">
                 <div class="greeting">你好 <strong>用户</strong>,</div>
                 <div class="congrats">以下就是地图ID：</div>
-
-                <!-- 关卡名称 -->
                 <div class="info-block">
                     <div class="info-label"><span class="icon">📝</span> 关卡名称</div>
                     <div class="info-value">功夫世界-26天</div>
                 </div>
-
-                <!-- Android ID -->
                 <div class="info-block">
                     <div class="info-label"><span class="icon">🤖</span> Android 关卡 ID</div>
                     <div class="info-value"><span class="id-link">192132978</span></div>
                 </div>
-
-                <!-- iOS ID -->
                 <div class="info-block">
                     <div class="info-label"><span class="icon">🍎</span> iOS 关卡 ID</div>
                     <div class="info-value"><span class="id-link">44093250</span></div>
                 </div>
             </div>
-             <!-- 温馨提示 (已补全) -->
             <div class="tips-section">
                 <div class="tips-title"><span class="icon">💡</span> 温馨提示:</div>
                 <ul class="tips-content">
@@ -236,7 +215,7 @@
             </div>
         </div>
 
-        <!-- ================= 第三列（对应原图1：摇滚年代第29天） ================= -->
+        <!-- 卡片 3: 摇滚年代第29天 -->
         <div class="card">
             <div class="card-header">
                 <span class="icon">🎉</span> 地图ID
@@ -244,62 +223,49 @@
             <div class="card-body">
                 <div class="greeting">你好 <strong>用户</strong>,</div>
                 <div class="congrats">以下就是地图ID：</div>
-
-                <!-- 关卡名称 -->
                 <div class="info-block">
                     <div class="info-label"><span class="icon">📝</span> 关卡名称</div>
                     <div class="info-value">摇滚年代第29天</div>
                 </div>
-
-                <!-- Android ID -->
                 <div class="info-block">
                     <div class="info-label"><span class="icon">🤖</span> Android 关卡 ID</div>
                     <div class="info-value"><span class="id-link">192402201</span></div>
                 </div>
-
-                <!-- Android ID -->
                 <div class="info-block">
                     <div class="info-label"><span class="icon">🍎</span> iOS 关卡 ID</div>
                     <div class="info-value"><span class="id-link">44133039</span></div>
                 </div>
-
-                <!-- 注意：这张图没有iOS ID，代码里直接不写这个块，卡片会自动缩短，保持美观 -->
             </div>
-             <!-- 温馨提示 (已补全) -->
             <div class="tips-section">
                 <div class="tips-title"><span class="icon">💡</span> 温馨提示:</div>
                 <ul class="tips-content">
                     <li>太空杀124高级创作地图ID</li>
                     <li>可在游戏内通过ID搜索游玩</li>
-                 
+                </ul>
+            </div>
+        </div>
 
-                            <div class="card">
+        <!-- 卡片 4: 摇滚年代-排山倒海1 -->
+        <div class="card">
             <div class="card-header">
                 <span class="icon">🎉</span> 地图ID
             </div>
             <div class="card-body">
                 <div class="greeting">你好 <strong>用户</strong>,</div>
                 <div class="congrats">以下就是地图ID：</div>
-
-                <!-- 关卡名称 -->
                 <div class="info-block">
                     <div class="info-label"><span class="icon">📝</span> 关卡名称</div>
                     <div class="info-value">摇滚年代-排山倒海1</div>
                 </div>
-
-                <!-- Android ID -->
                 <div class="info-block">
                     <div class="info-label"><span class="icon">🤖</span> Android 关卡 ID</div>
                     <div class="info-value"><span class="id-link">192762690</span></div>
                 </div>
-
-                <!-- iOS ID -->
                 <div class="info-block">
                     <div class="info-label"><span class="icon">🍎</span> iOS 关卡 ID</div>
                     <div class="info-value"><span class="id-link">44191513</span></div>
                 </div>
             </div>
-             <!-- 温馨提示 (已补全) -->
             <div class="tips-section">
                 <div class="tips-title"><span class="icon">💡</span> 温馨提示:</div>
                 <ul class="tips-content">
