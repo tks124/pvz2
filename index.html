@@ -1,39 +1,39 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+
+ 
+<头>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PvZ2 高级创作 - 关卡</title>
-    <style>
+    <样式>
         /* 全局样式 */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9; /* 浅灰背景 */
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
+        身体 {
+            字体：'Segoe UI'，Tahoma，Geneva，Verdana，无衬线;
+            背景颜色: #f4f6f9; /* 浅灰背景 */
+            边距：0;
+             
+            显示：伸缩;
+            文本对齐：居中;
         }
 
-        .container {
-            max-width: 1200px;
-            width: 100%;
+        .容器 {
+            最大宽度：1200像素;
+            宽度：100%;
         }
 
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 40px;
-            font-size: 28px;
-            font-weight: 600;
+         
+            文本对齐：居中;
+            颜色: #333;
+            下边距：40像素;
+            字体大小：28像素;
+            字体粗细：600;
         }
 
         /* 核心布局：Flexbox 实现从左到右排列 */
         /* 因为您的要求是：图3(最左) -> 图2(中) -> 图1(最右) */
         /* 所以我在HTML里会按照这个顺序写，CSS负责让它们横向排列 */
-        .card-row {
-            display: flex;
-            flex-direction: row; /* 水平排列 */
+        .卡片行 {
+            显示：伸缩;
+             flex-direction  :  row ; /* 水平排列 */
             justify-content: center; /* 居中显示 */
             gap: 25px; /* 卡片之间的间距 */
             flex-wrap: wrap; /* 如果屏幕太小，允许换行 */
@@ -264,6 +264,39 @@
                 </div>
 
                 <!-- 注意：这张图没有iOS ID，代码里直接不写这个块，卡片会自动缩短，保持美观 -->
+            </div>
+             <!-- 温馨提示 (已补全) -->
+            <div class="tips-section">
+                <div class="tips-title"><span class="icon">💡</span> 温馨提示:</div>
+                <ul class="tips-content">
+                    <li>太空杀124高级创作地图ID</li>
+                    <li>可在游戏内通过ID搜索游玩</li>
+
+                            <div class="card">
+            <div class="card-header">
+                <span class="icon">🎉</span> 地图ID
+            </div>
+            <div class="card-body">
+                <div class="greeting">你好 <strong>用户</strong>,</div>
+                <div class="congrats">以下就是地图ID：</div>
+
+                <!-- 关卡名称 -->
+                <div class="info-block">
+                    <div class="info-label"><span class="icon">📝</span> 关卡名称</div>
+                    <div class="info-value">摇滚年代-排山倒海1</div>
+                </div>
+
+                <!-- Android ID -->
+                <div class="info-block">
+                    <div class="info-label"><span class="icon">🤖</span> Android 关卡 ID</div>
+                    <div class="info-value"><span class="id-link">192762690</span></div>
+                </div>
+
+                <!-- iOS ID -->
+                <div class="info-block">
+                    <div class="info-label"><span class="icon">🍎</span> iOS 关卡 ID</div>
+                    <div class="info-value"><span class="id-link">44191513</span></div>
+                </div>
             </div>
              <!-- 温馨提示 (已补全) -->
             <div class="tips-section">
