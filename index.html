@@ -5,64 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PvZ2 高级创作 - 关卡地图ID</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-sub: #6b7280;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
         }
 
         .container {
-            max-width: 1300px;
-            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
         }
 
         h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 40px;
-            font-size: 28px;
-            font-weight: 600;
+            font-size: 2.5rem;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
         }
 
-        .card-row {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
+        .subtitle {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+        }
+
+        .search-wrapper {
+            max-width: 600px;
+            width: 90%;
+            margin: 0 auto 40px auto;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 14px 50px 14px 24px;
+            font-size: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: #fff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .search-box:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            pointer-events: none;
+        }
+
+        .clear-btn {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            cursor: pointer;
+            display: none;
+            font-size: 1.2rem;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .clear-btn:hover {
+            color: var(--text-main);
+        }
+
+        .search-stats {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            height: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
-            flex-wrap: wrap;
         }
 
         .card {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            width: 280px;
+            background: var(--card-bg);
+            border-radius: 16px;
             overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            border: 1px solid #e1e4e8;
-            transition: transform 0.2s;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
         .card-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             padding: 15px;
             text-align: center;
-            font-size: 18px;
+            color: white;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            font-size: 1.2rem;
         }
 
         .card-body {
@@ -70,224 +146,255 @@
             flex-grow: 1;
         }
 
-        .greeting {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 5px;
-        }
-
-        .congrats {
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .info-block {
-            background-color: #f8f9fa;
-            border-left: 4px solid #667eea;
-            padding: 10px 15px;
-            margin-bottom: 12px;
-            border-radius: 0 6px 6px 0;
+        .info-group {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9fafb;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
         }
 
         .info-label {
-            font-size: 12px;
-            color: #667eea;
-            font-weight: bold;
+            display: block;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
             margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
         }
 
         .info-value {
-            font-size: 15px;
-            color: #2c3e50;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            color: #374151;
             word-break: break-all;
         }
 
-        .id-link {
-            color: #2980b9;
-            font-family: monospace;
-            font-size: 14px;
+        .copy-hint {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 5px;
+            text-align: right;
         }
 
-        .tips-section {
-            background-color: #e3f2fd;
-            padding: 15px;
-            margin-top: auto;
-            border-top: 1px solid #bbdefb;
+        .no-result {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            color: var(--text-sub);
+            font-size: 1.2rem;
+            display: none;
         }
 
-        .tips-title {
-            color: #1565c0;
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-sub);
+            font-size: 0.9rem;
         }
 
-        .tips-content {
-            font-size: 12px;
-            color: #444;
-            margin: 0;
-            padding-left: 20px;
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .grid { grid-template-columns: 1fr; }
         }
-        
-        .icon { font-style: normal; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>植物大战僵尸2 - 高级创作地图ID</h1>
+    <header>
+        <h1>植物大战僵尸2 - 高级创作地图ID</h1>
+        <p class="subtitle">快速查找并复制您需要的关卡地图 ID</p>
+    </header>
 
-    <div class="card-row">
+    <div class="search-wrapper">
+        <span class="search-icon"></span>
+        <input type="text" id="searchInput" class="search-box" placeholder="搜索关卡名称….">
+        <button id="clearBtn" class="clear-btn">✕</button>
+    </div>
+    
+    <div id="searchStats" class="search-stats"></div>
 
-        <div class="card">
-            <div class="card-header">
-                <span class="icon">🎉</span> 地图ID
-            </div>
+    <div class="grid" id="cardGrid">
+        
+        <div class="card" data-name="摇滚年代-第26天">
+            <div class="card-header">🎉 地图ID</div>
             <div class="card-body">
-                <div class="greeting">你好 <strong>用户</strong>,</div>
-                <div class="congrats">以下就是地图ID：</div>
-                <div class="info-block">
-                    <div class="info-label"><span class="icon">📝</span> 关卡名称</div>
+                <p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br>以下就是地图ID：</p>
+                
+                <div class="info-group">
+                    <span class="info-label">📝 关卡名称</span>
                     <div class="info-value">摇滚年代-第26天</div>
                 </div>
-                <div class="info-block">
-                    <div class="info-label"><span class="icon">🤖</span> Android 关卡 ID</div>
-                    <div class="info-value"><span class="id-link">192013210</span></div>
+                
+                <div class="info-group">
+                    <span class="info-label">🤖 Android 关卡 ID</span>
+                    <div class="info-value">192013210</div>
                 </div>
-                <div class="info-block">
-                    <div class="info-label"><span class="icon">🍎</span> iOS 关卡 ID</div>
-                    <div class="info-value"><span class="id-link">44073977</span></div>
+                
+                <div class="info-group">
+                    <span class="info-label">🍎 iOS 关卡 ID</span>
+                    <div class="info-value">44073977</div>
                 </div>
-            </div>
-            <div class="tips-section">
-                <div class="tips-title"><span class="icon">💡</span> 温馨提示:</div>
-                <ul class="tips-content">
-                    <li>太空杀124高级创作地图ID</li>
-                    <li>可在游戏内通过ID搜索游玩</li>
-                </ul>
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-header">
-                <span class="icon">🎉</span> 地图ID
-            </div>
+        <div class="card" data-name="功夫世界-第26天">
+            <div class="card-header">🎉 地图ID</div>
             <div class="card-body">
-                <div class="greeting">你好 <strong>用户</strong>,</div>
-                <div class="congrats">以下就是地图ID：</div>
-                <div class="info-block">
-                    <div class="info-label"><span class="icon">📝</span> 关卡名称</div>
-                    <div class="info-value">功夫世界-26天</div>
+                <p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br>以下就是地图ID：</p>
+                
+                <div class="info-group">
+                    <span class="info-label">📝 关卡名称</span>
+                    <div class="info-value">功夫世界-第26天</div>
                 </div>
-                <div class="info-block">
-                    <div class="info-label"><span class="icon">🤖</span> Android 关卡 ID</div>
-                    <div class="info-value"><span class="id-link">192132978</span></div>
+                
+                <div class="info-group">
+                    <span class="info-label">🤖 Android 关卡 ID</span>
+                    <div class="info-value">192013211</div>
                 </div>
-                <div class="info-block">
-                    <div class="info-label"><span class="icon">🍎</span> iOS 关卡 ID</div>
-                    <div class="info-value"><span class="id-link">44093250</span></div>
+                
+                <div class="info-group">
+                    <span class="info-label">🍎 iOS 关卡 ID</span>
+                    <div class="info-value">44073978</div>
                 </div>
-            </div>
-            <div class="tips-section">
-                <div class="tips-title"><span class="icon">💡</span> 温馨提示:</div>
-                <ul class="tips-content">
-                    <li>太空杀124高级创作地图ID</li>
-                    <li>可在游戏内通过ID搜索游玩</li>
-                </ul>
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-header">
-                <span class="icon">🎉</span> 地图ID
-            </div>
+        <div class="card" data-name="摇滚年代-第29天">
+            <div class="card-header">🎉 地图ID</div>
             <div class="card-body">
-                <div class="greeting">你好 <strong>用户</strong>,</div>
-                <div class="congrats">以下就是地图ID：</div>
-                <div class="info-block">
-                    <div class="info-label"><span class="icon">📝</span> 关卡名称</div>
-                    <div class="info-value">摇滚年代第29天</div>
+                <p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br>以下就是地图ID：</p>
+                
+                <div class="info-group">
+                    <span class="info-label">📝 关卡名称</span>
+                    <div class="info-value">摇滚年代-第29天</div>
                 </div>
-                <div class="info-block">
-                    <div class="info-label"><span class="icon">🤖</span> Android 关卡 ID</div>
-                    <div class="info-value"><span class="id-link">192402201</span></div>
+                
+                <div class="info-group">
+                    <span class="info-label">🤖 Android 关卡 ID</span>
+                    <div class="info-value">192013215</div>
                 </div>
-                <div class="info-block">
-                    <div class="info-label"><span class="icon">🍎</span> iOS 关卡 ID</div>
-                    <div class="info-value"><span class="id-link">44133039</span></div>
+                
+                <div class="info-group">
+                    <span class="info-label">🍎 iOS 关卡 ID</span>
+                    <div class="info-value">44073982</div>
                 </div>
-            </div>
-            <div class="tips-section">
-                <div class="tips-title"><span class="icon">💡</span> 温馨提示:</div>
-                <ul class="tips-content">
-                    <li>太空杀124高级创作地图ID</li>
-                    <li>可在游戏内通过ID搜索游玩</li>
-                </ul>
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-header">
-                <span class="icon">🎉</span> 地图ID
-            </div>
+        <div class="card" data-name="摇滚年代-排山倒海1">
+            <div class="card-header">🎉 地图ID</div>
             <div class="card-body">
-                <div class="greeting">你好 <strong>用户</strong>,</div>
-                <div class="congrats">以下就是地图ID：</div>
-                <div class="info-block">
-                    <div class="info-label"><span class="icon">📝</span> 关卡名称</div>
+                <p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br>以下就是地图ID：</p>
+                
+                <div class="info-group">
+                    <span class="info-label">📝 关卡名称</span>
                     <div class="info-value">摇滚年代-排山倒海1</div>
                 </div>
-                 <div class="info-block">
-                    <div class="info-label"><span class="icon">🤖</span> Android 关卡 ID</div>
-                    <div class="info-value"><span class="id-link">192762690</span></div>
+                
+                <div class="info-group">
+                    <span class="info-label">🤖 Android 关卡 ID</span>
+                    <div class="info-value">192013220</div>
                 </div>
-                <div class="info-block">
-                    <div class="info-label"><span class="icon">🍎</span> iOS 关卡 ID</div>
-                    <div class="info-value"><span class="id-link">44191513</span></div>
+                
+                <div class="info-group">
+                    <span class="info-label">🍎 iOS 关卡 ID</span>
+                    <div class="info-value">44073990</div>
                 </div>
             </div>
-            <div class="tips-section">
-                <div class="tips-title"><span class="icon">💡</span> 温馨提示:</div>
-                <ul class="tips-content">
-                    <li>太空杀124高级创作地图ID</li>
-                    <li>可在游戏内通过ID搜索游玩</li>
-                </ul>
-            </div>
+        </div>
 
-                    <div class="card">
-            <div class="card-header">
-                <span class="icon">🎉</span> 地图ID
-            </div>
+        <div class="card" data-name="摇滚年代-排山倒海2">
+            <div class="card-header">🎉 地图ID</div>
             <div class="card-body">
-                <div class="greeting">你好 <strong>用户</strong>,</div>
-                <div class="congrats">以下就是地图ID：</div>
-                <div class="info-block">
-                    <div class="info-label"><span class="icon">📝</span> 关卡名称</div>
+                <p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br>以下就是地图ID：</p>
+                
+                <div class="info-group">
+                    <span class="info-label">📝 关卡名称</span>
                     <div class="info-value">摇滚年代-排山倒海2</div>
                 </div>
-                 <div class="info-block">
-                    <div class="info-label"><span class="icon">🤖</span> Android 关卡 ID</div>
-                    <div class="info-value"><span class="id-link">192978119</span></div>
+                
+                <div class="info-group">
+                    <span class="info-label">🤖 Android 关卡 ID</span>
+                    <div class="info-value">192013221</div>
                 </div>
-                <div class="info-block">
-                    <div class="info-label"><span class="icon">🍎</span> iOS 关卡 ID</div>
-                    <div class="info-value"><span class="id-link">44228021</span></div>
+                
+                <div class="info-group">
+                    <span class="info-label">🍎 iOS 关卡 ID</span>
+                    <div class="info-value">44073991</div>
                 </div>
             </div>
-            <div class="tips-section">
-                <div class="tips-title"><span class="icon">💡</span> 温馨提示:</div>
-                <ul class="tips-content">
-                    <li>太空杀124高级创作地图ID</li>
-                    <li>可在游戏内通过ID搜索游玩</li>
-                </ul>
-            </div>
+        </div>
+
+        <div class="no-result" id="noResult">
+            未找到，请更换关键词
+        </div>
+
+    </div>
+
+    <footer>
+        &copy;2026.太空杀124.PvZ2.Advanced creative income
+    </footer>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        const clearBtn = document.getElementById('clearBtn');
+        const cards = document.querySelectorAll('.card');
+        const noResult = document.getElementById('noResult');
+        const searchStats = document.getElementById('searchStats');
+
+        function performSearch() {
+            const query = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            if (query.length > 0) {
+                clearBtn.style.display = 'block';
+            } else {
+                clearBtn.style.display = 'none';
+            }
+
+            cards.forEach(card => {
+                const nameAttr = card.getAttribute('data-name') || '';
+
+                if (nameAttr.toLowerCase().includes(query)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (query.length > 0) {
+                searchStats.textContent = `找到 ${visibleCount} 个与 "${searchInput.value}" 匹配的关卡`;
+            } else {
+                searchStats.textContent = '';
+            }
+
+            if (visibleCount === 0 && query.length > 0) {
+                noResult.style.display = 'block';
+            } else {
+                noResult.style.display = 'none';
+            }
+        }
+
+        searchInput.addEventListener('input', performSearch);
+
+        clearBtn.addEventListener('click', function() {
+            searchInput.value = '';
+            performSearch();
+            searchInput.focus();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                searchInput.value = '';
+                performSearch();
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
