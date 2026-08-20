@@ -207,7 +207,6 @@
     }
 </style>
 <script>
-    // 检测同目录下是否存在 wh.json 文件，存在则跳转
     fetch('wh.json', { method: 'HEAD' })
         .then(function(response) {
             if (response.ok) {
@@ -215,7 +214,6 @@
             }
         })
         .catch(function() {
-            // 文件不存在或请求失败，不做任何操作，继续加载页面
         });
 </script>
 </head>
