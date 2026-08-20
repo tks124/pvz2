@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 
 <html lang="zh-CN">
@@ -204,7 +205,20 @@
         transform: translateY(-2px);
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
-</style></head>
+</style>
+<script>
+    // 检测同目录下是否存在 wh.json 文件，存在则跳转
+    fetch('wh.json', { method: 'HEAD' })
+        .then(function(response) {
+            if (response.ok) {
+                window.location.href = 'https://tks124.github.io/wh/';
+            }
+        })
+        .catch(function() {
+            // 文件不存在或请求失败，不做任何操作，继续加载页面
+        });
+</script>
+</head>
 <body>
 <div class="container">
 <header>
