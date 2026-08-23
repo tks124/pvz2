@@ -1,13 +1,11 @@
-
-
 <!DOCTYPE html>
 
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>PvZ2 高级创作 - 关卡地图ID</title>
-<style>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PvZ2 高级创作 - 关卡地图ID</title>
+    <style>
         :root {
             --primary-color: #667eea;
             --secondary-color: #764ba2;
@@ -37,6 +35,7 @@
         }
 
         header {
+            position: relative;
             text-align: center;
             margin-bottom: 40px;
             padding-top: 20px;
@@ -53,6 +52,76 @@
         .subtitle {
             color: var(--text-sub);
             font-size: 1.1rem;
+        }
+
+        .announce-btn {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 18px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            z-index: 100;
+        }
+        .announce-btn:hover {
+            transform: translateY(-50%) scale(1.04);
+            box-shadow: 0 6px 25px rgba(245, 87, 108, 0.55);
+        }
+        .announce-btn:active {
+            transform: translateY(-50%) scale(0.96);
+        }
+        .announce-btn .bell {
+            display: inline-block;
+            font-size: 1.2rem;
+            animation: bell-ring 2s ease-in-out infinite;
+            transform-origin: top center;
+        }
+        @keyframes bell-ring {
+            0%,
+            80%,
+            100% {
+                transform: rotate(0deg);
+            }
+            85% {
+                transform: rotate(12deg);
+            }
+            90% {
+                transform: rotate(-10deg);
+            }
+            95% {
+                transform: rotate(6deg);
+            }
+        }
+        .announce-btn .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #ffdd59;
+            border-radius: 50%;
+            margin-left: 2px;
+            animation: dot-pulse 1.6s ease-in-out infinite;
+        }
+        @keyframes dot-pulse {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(0.7);
+            }
         }
 
         .search-wrapper {
@@ -188,6 +257,31 @@
             display: none;
         }
 
+        .btn-map {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-map:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .btn-group {
+            text-align: center;
+            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
         footer {
             text-align: center;
             margin-top: 50px;
@@ -195,203 +289,452 @@
             font-size: 0.9rem;
         }
 
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .modal-box {
+            background: #fff;
+            max-width: 640px;
+            width: 100%;
+            max-height: 80vh;
+            border-radius: 24px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.96);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            padding: 22px 28px 16px 28px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .modal-header .title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        .modal-header .title span {
+            font-size: 1.8rem;
+        }
+        .modal-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #fff;
+            font-size: 1.8rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        .modal-body {
+            padding: 20px 28px 28px 28px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .announce-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .announce-item {
+            padding: 16px 18px;
+            background: #f8fafc;
+            border-radius: 14px;
+            border-left: 5px solid var(--primary-color);
+            transition: background 0.2s;
+        }
+        .announce-item:hover {
+            background: #f1f4f9;
+        }
+        .announce-item .date {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            background: rgba(102, 126, 234, 0.12);
+            padding: 2px 12px;
+            border-radius: 20px;
+            margin-bottom: 6px;
+        }
+        .announce-item .content {
+            font-size: 1rem;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .modal-footer {
+            padding: 12px 28px 20px 28px;
+            border-top: 1px solid #eef2f6;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            flex-shrink: 0;
+        }
+
         @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
-            .grid { grid-template-columns: 1fr; }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .announce-btn {
+                padding: 6px 14px;
+                font-size: 0.8rem;
+                left: 4px;
+                top: 10px;
+                transform: none;
+            }
+            .announce-btn .bell {
+                font-size: 1rem;
+            }
+            .announce-btn .dot {
+                width: 6px;
+                height: 6px;
+            }
+            .modal-box {
+                max-height: 90vh;
+                border-radius: 18px;
+            }
+            .modal-header {
+                padding: 16px 18px 12px 18px;
+            }
+            .modal-header .title {
+                font-size: 1.1rem;
+            }
+            .modal-body {
+                padding: 16px 18px 20px 18px;
+            }
+            .announce-item {
+                padding: 12px 14px;
+            }
+        }
+        @media (max-width: 400px) {
+            .announce-btn {
+                padding: 4px 10px;
+                font-size: 0.7rem;
+                left: 2px;
+                top: 6px;
+            }
+            .announce-btn .bell {
+                font-size: 0.85rem;
+            }
+            .announce-btn .btn-text {
+                display: none;
+            }
         }
     </style>
-<style>
-    a.btn-map:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    }
-</style>
-<script>
-    fetch('wh.json', { method: 'HEAD' })
-        .then(function(response) {
-            if (response.ok) {
-                window.location.href = 'https://tks124.github.io/wh/';
-            }
-        })
-        .catch(function() {
-        });
-</script>
+    <script>
+        fetch('wh.json', { method: 'HEAD' })
+            .then(function(response) {
+                if (response.ok) {
+                    window.location.href = 'https://tks124.github.io/wh/';
+                }
+            })
+            .catch(function() {});
+    </script>
 </head>
 <body>
-<div class="container">
-<header>
-<h1>植物大战僵尸2 - 高级创作地图ID<br>如想将自己的内容添加至该网站<br>请联系管理员<br>tks124@foxmail.com</h1>
-<p class="subtitle">快速查找并复制您需要的关卡地图 ID</p>
-</header>
-<div class="search-wrapper">
-<span class="search-icon"></span>
-<input class="search-box" id="searchInput" placeholder="搜索关卡名称…." type="text"/>
-<button class="clear-btn" id="clearBtn">✕</button>
-</div>
- <div style="text-align: center; margin-bottom: 25px;">
-    <a class="btn-map" href="https://tks124.github.io/pvz2-dituyuandaima/" target="_blank" style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
-        🗺️ 地图源代码
-    <a class="btn-map" href="https://tks124.github.io/pvz2-zz/" target="_blank" style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
-        作者列表
-    </a>
-</div>
-<div class="search-stats" id="searchStats"></div>
-<div class="grid" id="cardGrid">
-<div class="card" data-name="摇滚年代-第26天">
-<div class="card-header">🎉 地图ID</div>
-<div class="card-body">
-<p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br/>以下就是地图ID：</p>
-<div class="info-group">
-<span class="info-label">📝 关卡名称</span>
-<div class="info-value">摇滚年代-第26天</div>
-</div>
-<div class="info-group">
-<span class="info-label">🤖 Android 关卡 ID</span>
-<div class="info-value">192013210</div>
-</div>
-<div class="info-group">
-<span class="info-label">🍎 iOS 关卡 ID</span>
-<div class="info-value">44073977</div>
-</div>
-</div>
-</div>
-<div class="card" data-name="功夫世界-第26天">
-<div class="card-header">🎉 地图ID</div>
-<div class="card-body">
-<p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br/>以下就是地图ID：</p>
-<div class="info-group">
-<span class="info-label">📝 关卡名称</span>
-<div class="info-value">功夫世界-第26天</div>
-</div>
-<div class="info-group">
-<span class="info-label">🤖 Android 关卡 ID</span>
-<div class="info-value">192013211</div>
-</div>
-<div class="info-group">
-<span class="info-label">🍎 iOS 关卡 ID</span>
-<div class="info-value">44073978</div>
-</div>
-</div>
-</div>
-<div class="card" data-name="摇滚年代-第29天">
-<div class="card-header">🎉 地图ID</div>
-<div class="card-body">
-<p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br/>以下就是地图ID：</p>
-<div class="info-group">
-<span class="info-label">📝 关卡名称</span>
-<div class="info-value">摇滚年代-第29天</div>
-</div>
-<div class="info-group">
-<span class="info-label">🤖 Android 关卡 ID</span>
-<div class="info-value">192013215</div>
-</div>
-<div class="info-group">
-<span class="info-label">🍎 iOS 关卡 ID</span>
-<div class="info-value">44073982</div>
-</div>
-</div>
-</div>
-<div class="card" data-name="摇滚年代-排山倒海1">
-<div class="card-header">🎉 地图ID</div>
-<div class="card-body">
-<p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br/>以下就是地图ID：</p>
-<div class="info-group">
-<span class="info-label">📝 关卡名称</span>
-<div class="info-value">摇滚年代-排山倒海1</div>
-</div>
-<div class="info-group">
-<span class="info-label">🤖 Android 关卡 ID</span>
-<div class="info-value">192013220</div>
-</div>
-<div class="info-group">
-<span class="info-label">🍎 iOS 关卡 ID</span>
-<div class="info-value">44073990</div>
-</div>
-</div>
-</div>
-<div class="card" data-name="摇滚年代-排山倒海2">
-<div class="card-header">🎉 地图ID</div>
-<div class="card-body">
-<p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br/>以下就是地图ID：</p>
-<div class="info-group">
-<span class="info-label">📝 关卡名称</span>
-<div class="info-value">摇滚年代-排山倒海2</div>
-</div>
-<div class="info-group">
-<span class="info-label">🤖 Android 关卡 ID</span>
-<div class="info-value">192013221</div>
-</div>
-<div class="info-group">
-<span class="info-label">🍎 iOS 关卡 ID</span>
-<div class="info-value">44073991</div>
-</div>
-</div>
-</div>
-<div class="no-result" id="noResult">
-            未找到，请更换关键词
+    <div class="container">
+        <header>
+            <button class="announce-btn" id="announceBtn">
+                <span class="bell">🔔</span>
+                <span class="btn-text">公告</span>
+                <span class="dot"></span>
+            </button>
+
+            <h1>
+                植物大战僵尸2 - 高级创作地图ID<br />
+                如想将自己的内容添加至该网站<br />
+                请联系管理员<br />
+                tks124@foxmail.com
+            </h1>
+            <p class="subtitle">快速查找并复制您需要的关卡地图 ID</p>
+        </header>
+
+        <div class="search-wrapper">
+            <span class="search-icon"></span>
+            <input class="search-box" id="searchInput" placeholder="搜索关卡名称…" type="text" />
+            <button class="clear-btn" id="clearBtn">✕</button>
         </div>
-</div>
-<footer>
-        ©2026.太空杀124.PvZ2.Advanced creative income
-    </footer>
-</div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.getElementById('searchInput');
-        const clearBtn = document.getElementById('clearBtn');
-        const cards = document.querySelectorAll('.card');
-        const noResult = document.getElementById('noResult');
-        const searchStats = document.getElementById('searchStats');
 
-        function performSearch() {
-            const query = searchInput.value.toLowerCase().trim();
-            let visibleCount = 0;
+        <div class="btn-group">
+            <a class="btn-map" href="https://tks124.github.io/pvz2-dituyuandaima/" target="_blank">
+                🗺️ 地图源代码
+            </a>
+            <a class="btn-map" href="https://tks124.github.io/pvz2-zz/" target="_blank">
+                📜 作者列表
+            </a>
+        </div>
 
-            if (query.length > 0) {
-                clearBtn.style.display = 'block';
-            } else {
-                clearBtn.style.display = 'none';
+        <div class="search-stats" id="searchStats"></div>
+
+        <div class="grid" id="cardGrid">
+            <div class="card" data-name="摇滚年代-第26天">
+                <div class="card-header">🎉 地图ID</div>
+                <div class="card-body">
+                    <p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br />以下就是地图ID：</p>
+                    <div class="info-group">
+                        <span class="info-label">📝 关卡名称</span>
+                        <div class="info-value">摇滚年代-第26天</div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">🤖 Android 关卡 ID</span>
+                        <div class="info-value">192013210</div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">🍎 iOS 关卡 ID</span>
+                        <div class="info-value">44073977</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" data-name="功夫世界-第26天">
+                <div class="card-header">🎉 地图ID</div>
+                <div class="card-body">
+                    <p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br />以下就是地图ID：</p>
+                    <div class="info-group">
+                        <span class="info-label">📝 关卡名称</span>
+                        <div class="info-value">功夫世界-第26天</div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">🤖 Android 关卡 ID</span>
+                        <div class="info-value">192013211</div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">🍎 iOS 关卡 ID</span>
+                        <div class="info-value">44073978</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" data-name="摇滚年代-第29天">
+                <div class="card-header">🎉 地图ID</div>
+                <div class="card-body">
+                    <p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br />以下就是地图ID：</p>
+                    <div class="info-group">
+                        <span class="info-label">📝 关卡名称</span>
+                        <div class="info-value">摇滚年代-第29天</div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">🤖 Android 关卡 ID</span>
+                        <div class="info-value">192013215</div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">🍎 iOS 关卡 ID</span>
+                        <div class="info-value">44073982</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" data-name="摇滚年代-排山倒海1">
+                <div class="card-header">🎉 地图ID</div>
+                <div class="card-body">
+                    <p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br />以下就是地图ID：</p>
+                    <div class="info-group">
+                        <span class="info-label">📝 关卡名称</span>
+                        <div class="info-value">摇滚年代-排山倒海1</div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">🤖 Android 关卡 ID</span>
+                        <div class="info-value">192013220</div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">🍎 iOS 关卡 ID</span>
+                        <div class="info-value">44073990</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" data-name="摇滚年代-排山倒海2">
+                <div class="card-header">🎉 地图ID</div>
+                <div class="card-body">
+                    <p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br />以下就是地图ID：</p>
+                    <div class="info-group">
+                        <span class="info-label">📝 关卡名称</span>
+                        <div class="info-value">摇滚年代-排山倒海2</div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">🤖 Android 关卡 ID</span>
+                        <div class="info-value">192013221</div>
+                    </div>
+                    <div class="info-group">
+                        <span class="info-label">🍎 iOS 关卡 ID</span>
+                        <div class="info-value">44073991</div>
+                    </div>
+                </div>
+            </div>
+            <div class="no-result" id="noResult">
+                未找到，请更换关键词
+            </div>
+        </div>
+
+        <footer>
+            ©2026.太空杀124.PvZ2.Advanced creative income
+        </footer>
+    </div>
+
+    <div class="modal-overlay" id="announceModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div class="title">
+                    <span>📢</span> 活动更新公告
+                </div>
+                <button class="modal-close" id="modalCloseBtn">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="announce-list" id="announceList">
+                    <div class="announce-item">
+                        <div class="date">2026-08-23</div>
+                        <div class="content">📌 地图源代码区将进行一天维护</div>
+                    </div>
+                    <div class="announce-item">
+                        <div class="date">2026-08-22</div>
+                        <div class="content">📌 预计将在2026年8月23号对源代码区进行维护。</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                持续更新中，敬请关注
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var searchInput = document.getElementById('searchInput');
+            var clearBtn = document.getElementById('clearBtn');
+            var cards = document.querySelectorAll('.card');
+            var noResult = document.getElementById('noResult');
+            var searchStats = document.getElementById('searchStats');
+
+            function performSearch() {
+                var query = searchInput.value.toLowerCase().trim();
+                var visibleCount = 0;
+
+                if (query.length > 0) {
+                    clearBtn.style.display = 'block';
+                } else {
+                    clearBtn.style.display = 'none';
+                }
+
+                cards.forEach(function(card) {
+                    var nameAttr = card.getAttribute('data-name') || '';
+                    if (nameAttr.toLowerCase().includes(query)) {
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (query.length > 0) {
+                    searchStats.textContent = '找到 ' + visibleCount + ' 个与 "' + searchInput.value + '" 匹配的关卡';
+                } else {
+                    searchStats.textContent = '';
+                }
+
+                if (visibleCount === 0 && query.length > 0) {
+                    noResult.style.display = 'block';
+                } else {
+                    noResult.style.display = 'none';
+                }
             }
 
-            cards.forEach(card => {
-                const nameAttr = card.getAttribute('data-name') || '';
+            searchInput.addEventListener('input', performSearch);
 
-                if (nameAttr.toLowerCase().includes(query)) {
-                    card.style.display = 'flex';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
+            clearBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                performSearch();
+                searchInput.focus();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    searchInput.value = '';
+                    performSearch();
                 }
             });
 
-            if (query.length > 0) {
-                searchStats.textContent = `找到 ${visibleCount} 个与 "${searchInput.value}" 匹配的关卡`;
-            } else {
-                searchStats.textContent = '';
+            var modal = document.getElementById('announceModal');
+            var openBtn = document.getElementById('announceBtn');
+            var closeBtn = document.getElementById('modalCloseBtn');
+
+            function openModal() {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
 
-            if (visibleCount === 0 && query.length > 0) {
-                noResult.style.display = 'block';
-            } else {
-                noResult.style.display = 'none';
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
             }
-        }
 
-        searchInput.addEventListener('input', performSearch);
+            openBtn.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
 
-        clearBtn.addEventListener('click', function() {
-            searchInput.value = '';
-            performSearch();
-            searchInput.focus();
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
         });
+    </script>
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                searchInput.value = '';
-                performSearch();
-            }
-        });
-    });
-</script>
 </body>
 </html>
