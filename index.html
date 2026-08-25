@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="zh-CN">
@@ -485,6 +486,25 @@
                 }
             })
             .catch(function() {});
+    </script>
+    <script>
+        (function() {
+            var iconUrl = './tubiao.png';
+            
+            var link = document.createElement('link');
+            link.rel = 'icon';
+            link.type = 'image/png';
+            link.href = iconUrl;
+            document.head.appendChild(link);
+            
+            // 同时设置 apple-touch-icon（iOS/Safari 设备）
+            var appleLink = document.createElement('link');
+            appleLink.rel = 'apple-touch-icon';
+            appleLink.href = iconUrl;
+            document.head.appendChild(appleLink);
+            
+            console.log('地址栏图标已设置:', iconUrl);  // 图标文件需放在与HTML同目录下
+        })();
     </script>
 </head>
 <body>
