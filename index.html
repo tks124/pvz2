@@ -1,6 +1,4 @@
-
 <!DOCTYPE html>
-
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
@@ -16,23 +14,23 @@
             --text-sub: #6b7280;
         }
 
-        * {{
-            box-sizing: border-box;box-sizing: border-box;
-            外边距：0;margin: 0;
-            内边距：0;padding: 0;
-        }}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        body {body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            背景颜色: var(--bg-color);background-color: var(--bg-color);
-            颜色: var(--text-main);color: var(--text-main);
-            行高: 1.6;line-height: 1.6;
-            内边距：20px;padding: 20px;
-        }}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
 
-        .container {container {
-            最大宽度：1000px;max-width: 1000px;
-            外边距：0 自动；margin: 0 auto;
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         header {
@@ -59,7 +57,7 @@
             position: absolute;
             left: 0;
             top: 50%;
-            transformtranslateY(-50%);
+            transform: translateY(-50%);
             display: flex;
             align-items: center;
             gap: 6px;
@@ -75,19 +73,23 @@
             transition: transform 0.25s ease, box-shadow 0.25s ease;
             z-index: 100;
         }
+
         .announce-btn:hover {
             transform: translateY(-50%) scale(1.04);
             box-shadow: 0 6px 25px rgba(245, 87, 108, 0.55);
         }
+
         .announce-btn:active {
             transform: translateY(-50%) scale(0.96);
         }
+
         .announce-btn .bell {
             display: inline-block;
             font-size: 1.2rem;
             animation: bell-ring 2s ease-in-out infinite;
             transform-origin: top center;
         }
+
         @keyframes bell-ring {
             0%,
             80%,
@@ -104,6 +106,7 @@
                 transform: rotate(6deg);
             }
         }
+
         .announce-btn .dot {
             display: inline-block;
             width: 8px;
@@ -113,6 +116,7 @@
             margin-left: 2px;
             animation: dot-pulse 1.6s ease-in-out infinite;
         }
+
         @keyframes dot-pulse {
             0%,
             100% {
@@ -270,10 +274,12 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .btn-map:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+
         .btn-group {
             text-align: center;
             margin-bottom: 25px;
@@ -305,6 +311,7 @@
             padding: 20px;
             animation: fadeIn 0.3s ease;
         }
+
         .modal-overlay.active {
             display: flex;
         }
@@ -330,6 +337,7 @@
             flex-direction: column;
             animation: slideUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+
         @keyframes slideUp {
             0% {
                 opacity: 0;
@@ -349,6 +357,7 @@
             align-items: center;
             flex-shrink: 0;
         }
+
         .modal-header .title {
             display: flex;
             align-items: center;
@@ -357,9 +366,11 @@
             font-size: 1.4rem;
             font-weight: 700;
         }
+
         .modal-header .title span {
             font-size: 1.8rem;
         }
+
         .modal-close {
             background: rgba(255, 255, 255, 0.2);
             border: none;
@@ -375,6 +386,7 @@
             justify-content: center;
             line-height: 1;
         }
+
         .modal-close:hover {
             background: rgba(255, 255, 255, 0.35);
         }
@@ -390,6 +402,7 @@
             flex-direction: column;
             gap: 18px;
         }
+
         .announce-item {
             padding: 16px 18px;
             background: #f8fafc;
@@ -397,9 +410,11 @@
             border-left: 5px solid var(--primary-color);
             transition: background 0.2s;
         }
+
         .announce-item:hover {
             background: #f1f4f9;
         }
+
         .announce-item .date {
             display: inline-block;
             font-size: 0.8rem;
@@ -410,6 +425,7 @@
             border-radius: 20px;
             margin-bottom: 6px;
         }
+
         .announce-item .content {
             font-size: 1rem;
             color: var(--text-main);
@@ -463,6 +479,7 @@
                 padding: 12px 14px;
             }
         }
+
         @media (max-width: 400px) {
             .announce-btn {
                 padding: 4px 10px;
@@ -490,20 +507,16 @@
     <script>
         (function() {
             var iconUrl = './tubiao.png';
-            
             var link = document.createElement('link');
             link.rel = 'icon';
             link.type = 'image/png';
             link.href = iconUrl;
             document.head.appendChild(link);
-            
-            // 同时设置 apple-touch-icon（iOS/Safari 设备）
             var appleLink = document.createElement('link');
             appleLink.rel = 'apple-touch-icon';
             appleLink.href = iconUrl;
             document.head.appendChild(appleLink);
-            
-            console.log('地址栏图标已设置:', iconUrl);  // 图标文件需放在与HTML同目录下
+            console.log('地址栏图标已设置:', iconUrl);
         })();
     </script>
 </head>
@@ -708,7 +721,7 @@
                     </div>
                 </div>
             </div>
-              <div class="card" data-name="摇滚年代-大举进攻">
+            <div class="card" data-name="摇滚年代-大举进攻">
                 <div class="card-header">🎉 地图ID</div>
                 <div class="card-body">
                     <p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br />以下就是地图ID：</p>
@@ -726,7 +739,7 @@
                     </div>
                 </div>
             </div>
-              <div class="card" data-name="摇滚年代-倾听说唱">
+            <div class="card" data-name="摇滚年代-倾听说唱">
                 <div class="card-header">🎉 地图ID</div>
                 <div class="card-body">
                     <p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br />以下就是地图ID：</p>
@@ -900,6 +913,5 @@
             });
         });
     </script>
-
 </body>
 </html>
