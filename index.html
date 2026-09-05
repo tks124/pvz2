@@ -12,6 +12,8 @@
             --card-bg: #ffffff;
             --text-main: #1f2937;
             --text-sub: #6b7280;
+            --toast-bg: #32325d;
+            --toast-accent: #f5576c;
         }
 
         * {
@@ -26,6 +28,7 @@
             color: var(--text-main);
             line-height: 1.6;
             padding: 20px;
+            min-height: 100vh;
         }
 
         .container {
@@ -72,6 +75,8 @@
             box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
             z-index: 100;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .announce-btn:hover {
@@ -126,6 +131,42 @@
             50% {
                 opacity: 0.4;
                 transform: scale(0.7);
+            }
+        }
+
+        /* 未读徽章 */
+        .unread-badge {
+            display: none;
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: #ff3b3b;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            padding: 0 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(255, 59, 59, 0.5);
+            animation: badge-bounce 2s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .unread-badge.show {
+            display: flex;
+        }
+
+        @keyframes badge-bounce {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
             }
         }
 
@@ -432,6 +473,30 @@
             line-height: 1.6;
         }
 
+        .announce-item.is-new {
+            border-left-color: #f5576c;
+            background: #fff5f7;
+        }
+
+        .announce-item.is-new .date {
+            color: #f5576c;
+            background: rgba(245, 87, 108, 0.12);
+        }
+
+        .new-tag {
+            display: inline-block;
+            background: #f5576c;
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 8px;
+            vertical-align: middle;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .modal-footer {
             padding: 12px 28px 20px 28px;
             border-top: 1px solid #eef2f6;
@@ -441,7 +506,134 @@
             flex-shrink: 0;
         }
 
+        /* ========== Toast 通知样式 ========== */
+        .toast-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 10001;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 380px;
+            width: calc(100vw - 48px);
+            pointer-events: none;
+        }
+
+        .toast-item {
+            pointer-events: auto;
+            background: #fff;
+            border-radius: 16px;
+            padding: 16px 18px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            cursor: pointer;
+            animation: toast-slide-in 0.45s cubic-bezier(0.34, 1.4, 0.64, 1);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            border-left: 5px solid var(--toast-accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toast-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(to right, #f093fb, #f5576c);
+            animation: toast-progress 5s linear forwards;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .toast-item.removing {
+            transform: translateX(120%);
+            opacity: 0;
+        }
+
+        @keyframes toast-slide-in {
+            0% {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes toast-progress {
+            0% {
+                width: 100%;
+            }
+            100% {
+                width: 0%;
+            }
+        }
+
+        .toast-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .toast-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .toast-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .toast-message {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        .toast-close-btn {
+            flex-shrink: 0;
+            background: none;
+            border: none;
+            color: #9ca3af;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 2px;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .toast-close-btn:hover {
+            color: var(--text-main);
+        }
+
+        /* ========== 响应式 Toast ========== */
         @media (max-width: 600px) {
+            .toast-container {
+                bottom: 12px;
+                right: 12px;
+                left: 12px;
+                width: auto;
+                max-width: none;
+            }
+            .toast-item {
+                padding: 12px 14px;
+                border-radius: 12px;
+            }
+            .toast-icon {
+                font-size: 1.5rem;
+            }
             h1 {
                 font-size: 1.8rem;
             }
@@ -455,12 +647,23 @@
                 top: 10px;
                 transform: none;
             }
+            .announce-btn:hover {
+                transform: none;
+            }
             .announce-btn .bell {
                 font-size: 1rem;
             }
             .announce-btn .dot {
                 width: 6px;
                 height: 6px;
+            }
+            .unread-badge {
+                min-width: 16px;
+                height: 16px;
+                font-size: 0.6rem;
+                top: -4px;
+                right: -4px;
+                border-radius: 8px;
             }
             .modal-box {
                 max-height: 90vh;
@@ -527,6 +730,7 @@
                 <span class="bell">🔔</span>
                 <span class="btn-text">公告</span>
                 <span class="dot"></span>
+                <span class="unread-badge" id="unreadBadge">0</span>
             </button>
 
             <h1>
@@ -839,6 +1043,9 @@
         </footer>
     </div>
 
+    <!-- Toast 通知容器 -->
+    <div class="toast-container" id="toastContainer"></div>
+
     <div class="modal-overlay" id="announceModal">
         <div class="modal-box">
             <div class="modal-header">
@@ -849,54 +1056,7 @@
             </div>
             <div class="modal-body">
                 <div class="announce-list" id="announceList">
-                  <div class="announce-item">
-                  <div class="date">2026-09-04/21:07</div>
-                   <div class="content">🎁 发放福利兑换码:5x3eu2tksj8sns，该兑换码将于2026年9月8日失效，且该兑换码仅限一人兑换，拼手速吧</div>
-                    </div>
-                    <div class="announce-item">
-                        <div class="date">2026-09-04</div>
-                        <div class="content">📌 软件已升级至3.2.1版本</div>
-                    </div>
-                    <div class="announce-item">
-                        <div class="date">2026-09-03/三次更新 15:23</div>
-                        <div class="content">📌 软件已升级至3.0.13版本，已关闭激活码模式，现在你不需要激活码也可以进入软件</div>
-                    </div>
-                    <div class="announce-item">
-                        <div class="date">2026-09-03/二次更新 08:53</div>
-                        <div class="content">📌 新增三个地图ID/破阵危机、摇滚年代-我是僵尸、僵王博士的复仇已加入ID搜索列表</div>
-                    </div>
-                    <div class="announce-item">
-                        <div class="date">2026-09-03</div>
-                        <div class="content">📌 软件已升级至2.768.4640-437版本,现可在页面点击按钮进行升级</div>
-                    </div>
-                    <div class="announce-item">
-                        <div class="date">2026-09-02</div>
-                        <div class="content">📌 为了确保便捷而不需要输入链接，我们制作了相应的软件，现在可以通过页面的按钮下载该软件</div>
-                    </div>
-                    <div class="announce-item">
-                        <div class="date">2026-08-31</div>
-                        <div class="content">📌 新增两个地图ID/倾听说唱_难度-1、倾听说唱_难度-2已加入ID搜索列表</div>
-                    </div>
-                    <div class="announce-item">
-                        <div class="date">2026-08-29</div>
-                        <div class="content">📌 新增一个地图ID/摇滚VS功夫已加入ID搜索列表</div>
-                    </div>
-                    <div class="announce-item">
-                        <div class="date">2026-08-28</div>
-                        <div class="content">📌 新增两个地图ID/摇滚年代-坚不可摧、摇滚年代大总合已加入ID搜索列表</div>
-                    </div>
-                    <div class="announce-item">
-                        <div class="date">2026-08-27</div>
-                        <div class="content">📌 新增两个地图ID/大举进攻、倾听说唱已加入ID搜索列表</div>
-                    </div>
-                    <div class="announce-item">
-                        <div class="date">2026-08-23</div>
-                        <div class="content">📌 地图源代码区将进行一天维护</div>
-                    </div>
-                    <div class="announce-item">
-                        <div class="date">2026-08-22</div>
-                        <div class="content">📌 预计将在2026年8月23号对源代码区进行维护。</div>
-                    </div>
+                    <!-- 公告列表由 JS 动态渲染 -->
                 </div>
             </div>
             <div class="modal-footer">
@@ -907,6 +1067,267 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            /* ============================================================
+               1. 公告数据（保持原文内容不变，便于动态渲染和检测新增）
+               ============================================================ */
+            var announcements = [
+                { date: "2026-09-04/21:07",
+                    content: "🎁 发放福利兑换码:5x3eu2tksj8sns，该兑换码将于2026年9月8日失效，且该兑换码仅限一人兑换，拼手速吧" },
+                { date: "2026-09-04", content: "📌 软件已升级至3.2.1版本" },
+                { date: "2026-09-03/三次更新 15:23", content: "📌 软件已升级至3.0.13版本，已关闭激活码模式，现在你不需要激活码也可以进入软件" },
+                { date: "2026-09-03/二次更新 08:53",
+                    content: "📌 新增三个地图ID/破阵危机、摇滚年代-我是僵尸、僵王博士的复仇已加入ID搜索列表" },
+                { date: "2026-09-03", content: "📌 软件已升级至2.768.4640-437版本,现可在页面点击按钮进行升级" },
+                { date: "2026-09-02", content: "📌 为了确保便捷而不需要输入链接，我们制作了相应的软件，现在可以通过页面的按钮下载该软件" },
+                { date: "2026-08-31", content: "📌 新增两个地图ID/倾听说唱_难度-1、倾听说唱_难度-2已加入ID搜索列表" },
+                { date: "2026-08-29", content: "📌 新增一个地图ID/摇滚VS功夫已加入ID搜索列表" },
+                { date: "2026-08-28", content: "📌 新增两个地图ID/摇滚年代-坚不可摧、摇滚年代大总合已加入ID搜索列表" },
+                { date: "2026-08-27", content: "📌 新增两个地图ID/大举进攻、倾听说唱已加入ID搜索列表" },
+                { date: "2026-08-23", content: "📌 地图源代码区将进行一天维护" },
+                { date: "2026-08-22", content: "📌 预计将在2026年8月23号对源代码区进行维护。" }
+            ];
+
+            /* ============================================================
+               2. localStorage 键名定义
+               ============================================================ */
+            var LS_KEY_LAST_SEEN = 'pvz2_announce_last_seen_v1';
+            var LS_KEY_READ = 'pvz2_announce_read_v1';
+            var LS_KEY_NOTIFIED = 'pvz2_announce_notified_v1';
+
+            /* ============================================================
+               3. DOM 元素引用
+               ============================================================ */
+            var announceListEl = document.getElementById('announceList');
+            var announceBtn = document.getElementById('announceBtn');
+            var unreadBadge = document.getElementById('unreadBadge');
+            var modal = document.getElementById('announceModal');
+            var modalCloseBtn = document.getElementById('modalCloseBtn');
+            var toastContainer = document.getElementById('toastContainer');
+
+            /* ============================================================
+               4. 工具函数：localStorage 安全读写
+               ============================================================ */
+            function lsGet(key, defaultVal) {
+                try {
+                    var val = localStorage.getItem(key);
+                    return val ? JSON.parse(val) : defaultVal;
+                } catch (e) {
+                    return defaultVal;
+                }
+            }
+
+            function lsSet(key, val) {
+                try {
+                    localStorage.setItem(key, JSON.stringify(val));
+                } catch (e) {
+                    /* 静默处理 */
+                }
+            }
+
+            /* ============================================================
+               5. 工具函数：获取当前所有公告日期列表
+               ============================================================ */
+            function getCurrentAnnounceDates() {
+                return announcements.map(function(item) { return item.date; });
+            }
+
+            /* ============================================================
+               6. 动态渲染公告列表（保持原有公告内容不变）
+               ============================================================ */
+            var newDatesSet = {}; // 记录哪些日期是"新"的（用于高亮）
+
+            function renderAnnouncements(newDates) {
+                var html = '';
+                announcements.forEach(function(item) {
+                    var isNew = newDates && newDates.indexOf(item.date) !== -1;
+                    var newTagHtml = isNew ? '<span class="new-tag">NEW</span>' : '';
+                    var newClass = isNew ? ' is-new' : '';
+                    html +=
+                        '<div class="announce-item' + newClass + '">' +
+                        '<div class="date">' + item.date + newTagHtml + '</div>' +
+                        '<div class="content">' + item.content + '</div>' +
+                        '</div>';
+                });
+                announceListEl.innerHTML = html;
+            }
+
+            /* ============================================================
+               7. 系统通知支持检测与权限请求
+               ============================================================ */
+            function isNotificationSupported() {
+                return 'Notification' in window;
+            }
+
+            function requestNotificationPermission() {
+                if (!isNotificationSupported()) return;
+                if (Notification.permission === 'default') {
+                    // 在用户手势中调用（由点击公告按钮触发）
+                    Notification.requestPermission().catch(function() {});
+                }
+            }
+
+            function showSystemNotification(title, body) {
+                if (!isNotificationSupported()) return;
+                if (Notification.permission !== 'granted') return;
+                try {
+                    var iconUrl = './tubiao.png';
+                    var notif = new Notification(title, {
+                        body: body,
+                        icon: iconUrl,
+                        badge: iconUrl,
+                        tag: 'pvz2-announce-' + Date.now()
+                    });
+                    notif.onclick = function() {
+                        window.focus();
+                        openModal();
+                        notif.close();
+                    };
+                    setTimeout(function() {
+                        notif.close();
+                    }, 8000);
+                } catch (e) {
+                    /* 静默处理 */
+                }
+            }
+
+            /* ============================================================
+               8. Toast 通知系统（页面内通知，核心）
+               ============================================================ */
+            function createToast(newItems) {
+                if (!newItems || newItems.length === 0) return;
+
+                var icon = newItems.length > 1 ? '📢' : '📢';
+                var titleText = '发现 ' + newItems.length + ' 条新公告';
+                var latestContent = newItems[0].content;
+                var messagePreview = latestContent.length > 50 ? latestContent.substring(0, 50) + '…' :
+                latestContent;
+
+                var toastItem = document.createElement('div');
+                toastItem.className = 'toast-item';
+                toastItem.setAttribute('role', 'alert');
+                toastItem.innerHTML =
+                    '<span class="toast-icon">' + icon + '</span>' +
+                    '<div class="toast-content">' +
+                    '<div class="toast-title">' + titleText + '</div>' +
+                    '<div class="toast-message">' + messagePreview + '</div>' +
+                    '</div>' +
+                    '<button class="toast-close-btn" aria-label="关闭通知">✕</button>';
+
+                toastItem.addEventListener('click', function(e) {
+                    if (e.target.closest('.toast-close-btn')) return;
+                    openModal();
+                    removeToast(toastItem);
+                });
+
+                var closeBtn = toastItem.querySelector('.toast-close-btn');
+                closeBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    removeToast(toastItem);
+                });
+
+                toastContainer.appendChild(toastItem);
+
+                setTimeout(function() {
+                    removeToast(toastItem);
+                }, 5000);
+            }
+
+            function removeToast(toastItem) {
+                if (!toastItem || toastItem.classList.contains('removing')) return;
+                toastItem.classList.add('removing');
+                setTimeout(function() {
+                    if (toastItem.parentNode) {
+                        toastItem.parentNode.removeChild(toastItem);
+                    }
+                }, 350);
+            }
+
+            function newnotification(newItems) {
+                if (!newItems || newItems.length === 0) return;
+
+                console.log('🔔 newnotification() 触发，新公告数量:', newItems.length);
+
+                createToast(newItems);
+
+                var sysTitle = '📢 PvZ2 有 ' + newItems.length + ' 条新公告';
+                var sysBody = newItems[0].content.length > 60 ?
+                    newItems[0].content.substring(0, 60) + '…' :
+                    newItems[0].content;
+                showSystemNotification(sysTitle, sysBody);
+            }
+
+            function checkForNewAnnouncements() {
+                var currentDates = getCurrentAnnounceDates();
+                var lastSeenDates = lsGet(LS_KEY_LAST_SEEN, null);
+                var readDates = lsGet(LS_KEY_READ, []);
+                var notifiedDates = lsGet(LS_KEY_NOTIFIED, []);
+
+                var newDates = [];
+                var unreadDates = [];
+
+                if (lastSeenDates === null || !Array.isArray(lastSeenDates)) {
+                    lsSet(LS_KEY_LAST_SEEN, currentDates);
+                    lsSet(LS_KEY_READ, currentDates);
+                    lsSet(LS_KEY_NOTIFIED, currentDates);
+                    renderAnnouncements([]);
+                    updateUnreadBadge(0);
+                    return;
+                }
+
+                currentDates.forEach(function(date) {
+                    if (lastSeenDates.indexOf(date) === -1) {
+                        newDates.push(date);
+                    }
+                });
+
+                currentDates.forEach(function(date) {
+                    if (readDates.indexOf(date) === -1) {
+                        unreadDates.push(date);
+                    }
+                });
+
+                if (newDates.length > 0) {
+                    var newItems = announcements.filter(function(item) {
+                        return newDates.indexOf(item.date) !== -1;
+                    });
+                    newnotification(newItems);
+                }
+
+                lsSet(LS_KEY_LAST_SEEN, currentDates);
+                lsSet(LS_KEY_NOTIFIED, currentDates);
+
+                renderAnnouncements(newDates);
+
+                updateUnreadBadge(unreadDates.length);
+            }
+
+            function updateUnreadBadge(count) {
+                if (count > 0) {
+                    unreadBadge.textContent = count > 99 ? '99+' : count;
+                    unreadBadge.classList.add('show');
+                } else {
+                    unreadBadge.classList.remove('show');
+                }
+            }
+
+            function markAllAsRead() {
+                var currentDates = getCurrentAnnounceDates();
+                lsSet(LS_KEY_READ, currentDates);
+                updateUnreadBadge(0);
+                renderAnnouncements([]);
+            }
+
+            function openModal() {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                markAllAsRead();
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
             var searchInput = document.getElementById('searchInput');
             var clearBtn = document.getElementById('clearBtn');
             var cards = document.querySelectorAll('.card');
@@ -934,7 +1355,8 @@
                 });
 
                 if (query.length > 0) {
-                    searchStats.textContent = '找到 ' + visibleCount + ' 个与 "' + searchInput.value + '" 匹配的关卡';
+                    searchStats.textContent = '找到 ' + visibleCount + ' 个与 "' + searchInput.value +
+                        '" 匹配的关卡';
                 } else {
                     searchStats.textContent = '';
                 }
@@ -954,29 +1376,14 @@
                 searchInput.focus();
             });
 
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    searchInput.value = '';
-                    performSearch();
+            announceBtn.addEventListener('click', function() {
+                openModal();
+                if (isNotificationSupported() && Notification.permission === 'default') {
+                    requestNotificationPermission();
                 }
             });
 
-            var modal = document.getElementById('announceModal');
-            var openBtn = document.getElementById('announceBtn');
-            var closeBtn = document.getElementById('modalCloseBtn');
-
-            function openModal() {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeModal() {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-
-            openBtn.addEventListener('click', openModal);
-            closeBtn.addEventListener('click', closeModal);
+            modalCloseBtn.addEventListener('click', closeModal);
 
             modal.addEventListener('click', function(e) {
                 if (e.target === modal) {
@@ -985,11 +1392,22 @@
             });
 
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.classList.contains('active')) {
-                    closeModal();
+                if (e.key === 'Escape') {
+                    searchInput.value = '';
+                    performSearch();
+                    if (modal.classList.contains('active')) {
+                        closeModal();
+                    }
                 }
             });
+
+            function init() {              
+                renderAnnouncements([]);
+                checkForNewAnnouncements();
+            }
+
+            init();
         });
     </script>
 </body>
-</html>
+    </html>
