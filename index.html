@@ -134,7 +134,6 @@
             }
         }
 
-        /* 未读徽章 */
         .unread-badge {
             display: none;
             position: absolute;
@@ -506,7 +505,6 @@
             flex-shrink: 0;
         }
 
-        /* ========== Toast 通知样式 ========== */
         .toast-container {
             position: fixed;
             bottom: 24px;
@@ -618,7 +616,6 @@
             color: var(--text-main);
         }
 
-        /* ========== 响应式 Toast ========== */
         @media (max-width: 600px) {
             .toast-container {
                 bottom: 12px;
@@ -755,8 +752,8 @@
             <a class="btn-map" href="https://tks124.github.io/pvz2-zz/" target="_blank">
                 📜 作者列表
             </a>
-            <a class="btn-map" href="https://github.com/tks124/pvz2-apk/releases/download/v3.2./4pvz2_v3.2.4.APK" target="_blank">
-                不想老是手动输链接？点击这里下载手机软件版/v3.2.
+            <a class="btn-map" href="https://github.com/tks124/pvz2-apk/releases/download/v3.2.4/4pvz2_v3.2.4.APK" target="_blank">
+                不想老是手动输链接？点击这里下载手机软件版/v3.2.4
 4            </a>
         </div>
 
@@ -1043,7 +1040,6 @@
         </footer>
     </div>
 
-    <!-- Toast 通知容器 -->
     <div class="toast-container" id="toastContainer"></div>
 
     <div class="modal-overlay" id="announceModal">
@@ -1085,16 +1081,10 @@
                 { date: "2026-08-22", content: "📌 预计将在2026年8月23号对源代码区进行维护。" }
             ];
 
-            /* ============================================================
-               2. localStorage 键名定义
-               ============================================================ */
             var LS_KEY_LAST_SEEN = 'pvz2_announce_last_seen_v1';
             var LS_KEY_READ = 'pvz2_announce_read_v1';
             var LS_KEY_NOTIFIED = 'pvz2_announce_notified_v1';
 
-            /* ============================================================
-               3. DOM 元素引用
-               ============================================================ */
             var announceListEl = document.getElementById('announceList');
             var announceBtn = document.getElementById('announceBtn');
             var unreadBadge = document.getElementById('unreadBadge');
@@ -1102,9 +1092,6 @@
             var modalCloseBtn = document.getElementById('modalCloseBtn');
             var toastContainer = document.getElementById('toastContainer');
 
-            /* ============================================================
-               4. 工具函数：localStorage 安全读写
-               ============================================================ */
             function lsGet(key, defaultVal) {
                 try {
                     var val = localStorage.getItem(key);
@@ -1118,21 +1105,14 @@
                 try {
                     localStorage.setItem(key, JSON.stringify(val));
                 } catch (e) {
-                    /* 静默处理 */
                 }
             }
-
-            /* ============================================================
-               5. 工具函数：获取当前所有公告日期列表
-               ============================================================ */
+            
             function getCurrentAnnounceDates() {
                 return announcements.map(function(item) { return item.date; });
             }
 
-            /* ============================================================
-               6. 动态渲染公告列表（保持原有公告内容不变）
-               ============================================================ */
-            var newDatesSet = {}; // 记录哪些日期是"新"的（用于高亮）
+            var newDatesSet = {};
 
             function renderAnnouncements(newDates) {
                 var html = '';
@@ -1148,10 +1128,6 @@
                 });
                 announceListEl.innerHTML = html;
             }
-
-            /* ============================================================
-               7. 系统通知支持检测与权限请求
-               ============================================================ */
             function isNotificationSupported() {
                 return 'Notification' in window;
             }
@@ -1159,7 +1135,6 @@
             function requestNotificationPermission() {
                 if (!isNotificationSupported()) return;
                 if (Notification.permission === 'default') {
-                    // 在用户手势中调用（由点击公告按钮触发）
                     Notification.requestPermission().catch(function() {});
                 }
             }
@@ -1184,13 +1159,9 @@
                         notif.close();
                     }, 8000);
                 } catch (e) {
-                    /* 静默处理 */
                 }
             }
 
-            /* ============================================================
-               8. Toast 通知系统（页面内通知，核心）
-               ============================================================ */
             function createToast(newItems) {
                 if (!newItems || newItems.length === 0) return;
 
