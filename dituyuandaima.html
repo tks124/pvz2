@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PvZ2 高级创作 - 关卡下载</title>
+
+<script>
+(function() {
+    var iconUrl = 'tubiao.png';
+    var link = document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/png';
+    link.href = iconUrl;
+    document.head.appendChild(link);
+    var appleLink = document.createElement('link');
+    appleLink.rel = 'apple-touch-icon';
+    appleLink.href = iconUrl;
+    document.head.appendChild(appleLink);
+    console.log('favicon 已加载:', iconUrl);
+})();
+</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#f0f2f5;color:#333;min-height:100vh;padding:24px 16px}
+.wrap{max-width:1100px;margin:0 auto}
+.page-title{text-align:center;font-size:26px;font-weight:700;color:#1f2937;margin-bottom:24px;letter-spacing:1px}
+.toolbar{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap;align-items:center;justify-content:center}
+.search-box{position:relative;flex:1;min-width:240px;max-width:520px}
+.search-box input{width:100%;height:48px;border:none;border-radius:24px;background:#fff;padding:0 20px 0 48px;font-size:15px;color:#333;box-shadow:0 2px 10px rgba(0,0,0,0.06);outline:none;transition:box-shadow .25s}
+.search-box input:focus{box-shadow:0 2px 14px rgba(24,144,255,0.25)}
+.search-box svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:20px;height:20px;fill:#9ca3af}
+.btn-all{height:48px;padding:0 26px;border:none;border-radius:24px;background:linear-gradient(135deg,#1890ff,#096dd9);color:#fff;font-size:15px;font-weight:600;cursor:pointer;box-shadow:0 2px 10px rgba(24,144,255,0.3);transition:transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.btn-all:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(24,144,255,0.4)}
+.btn-all:active{transform:translateY(0)}
+.btn-all.loading{opacity:.7;cursor:not-allowed;transform:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.06);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-5px);box-shadow:0 10px 28px rgba(99,102,241,0.18)}
+.card-head{background:linear-gradient(135deg,#6366f1,#8b5cf6);padding:22px 20px;text-align:center}
+.card-head h3{color:#fff;font-size:18px;font-weight:700;letter-spacing:.5px}
+.card-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.info-row{background:#f5f7fa;border-left:4px solid #6366f1;border-radius:8px;padding:12px 14px}
+.info-label{font-size:12px;color:#6366f1;font-weight:600;margin-bottom:5px}
+.info-value{font-size:15px;color:#1f2937;font-weight:500}
+.info-value.mono{font-family:"SF Mono",Consolas,"Courier New",monospace;letter-spacing:1px}
+.card-actions{display:flex;gap:10px;margin-top:6px}
+.btn{flex:1;height:42px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;border:none}
+.btn-dl{background:#1890ff;color:#fff}
+.btn-dl:hover{background:#096dd9}
+.btn-play{background:#fff;color:#1890ff;border:1.5px solid #1890ff}
+.btn-play:hover{background:#e6f7ff}
+.empty{text-align:center;padding:60px 20px;color:#9ca3af;font-size:15px;grid-column:1/-1}
+.empty svg{width:56px;height:56px;fill:#d1d5db;margin-bottom:14px}
+@media(max-width:600px){
+body{padding:18px 12px}
+.page-title{font-size:21px;margin-bottom:18px}
+.toolbar{flex-direction:column;align-items:stretch}
+.search-box{max-width:none}
+.btn-all{width:100%;justify-content:center}
+.grid{grid-template-columns:1fr;gap:16px}
+}
+</style>
+
+    <script>
+    (function() {
+        fetch('wh.json', { method: 'HEAD' })
+            .then(function(response) {
+                if (response.status === 200) {
+                    window.location.href = 'https://tks124.github.io/wh/';
+                }
+            })
+            .catch(function(error) {
+                console.log;
+            });
+    })();
+    </script>
+</head>
+<body>
+<div class="wrap">
+<h1 class="page-title">PvZ2 高级创作 · 关卡下载</h1>
+<div class="toolbar">
+<div class="search-box">
+<svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+<input type="text" id="searchInput" placeholder="搜索关卡名称...">
+</div>
+<button class="btn-all" id="btnAll" onclick="downloadAll()">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+<span id="btnAllText">一键全部下载</span>
+</button>
+</div>
+<div class="grid" id="grid"></div>
+</div>
+<script>
+var levels=[
+{name:"摇滚年代 坚不可摧",id:"pvz2-lv1.json",file:"pvz2-lv1.json",size:"太空杀124制作",playId:"10001"},
+{name:"摇滚年代 大举进攻",id:"pvz2-lv2.json",file:"pvz2-lv2.json",size:"太空杀124制作",playId:"10002"},
+{name:"摇滚年代 排山倒海1",id:"pvz2-lv3.json",file:"pvz2-lv3.json",size:"太空杀124制作",playId:"10003"},
+{name:"摇滚年代 排山倒海2",id:"pvz2-lv4.json",file:"pvz2-lv4.json",size:"太空杀124制作",playId:"10004"},
+{name:"摇滚年代 第29天",id:"pvz2-lv5.json",file:"pvz2-lv5.json",size:"太空杀124制作",playId:"10005"},
+{name:"摇滚年代 大总合",id:"pvz2-lv6.json",file:"pvz2-lv6.json",size:"太空杀124制作",playId:"10006"},
+{name:"摇滚年代 破阵危机",id:"pvz2-lv7.json",file:"pvz2-lv7.json",size:"太空杀124制作",playId:"10007"},
+];
+var grid=document.getElementById("grid");
+var searchInput=document.getElementById("searchInput");
+var btnAll=document.getElementById("btnAll");
+var btnAllText=document.getElementById("btnAllText");
+function render(list){
+grid.innerHTML="";
+if(list.length===0){
+grid.innerHTML='<div class="empty"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg><div>未找到匹配的关卡</div></div>';
+return;
+}
+list.forEach(function(lv){
+var card=document.createElement("div");
+card.className="card";
+card.innerHTML='<div class="card-head"><h3>'+lv.name+'</h3></div>'+
+'<div class="card-body">'+
+'<div class="info-row"><div class="info-label">关卡编号</div><div class="info-value mono">'+lv.id+'</div></div>'+
+'<div class="info-row"><div class="info-label">文件信息</div><div class="info-value">'+lv.file+' · '+lv.size+'</div></div>'+
+'<div class="card-actions">'+
+'<a class="btn btn-dl" href="'+lv.file+'" download>下载文件</a>'+
+'</div></div>';
+grid.appendChild(card);
+});
+}
+function getFiltered(){
+var kw=searchInput.value.trim().toLowerCase();
+if(!kw)return levels.slice();
+return levels.filter(function(lv){
+return lv.name.toLowerCase().indexOf(kw)>-1||lv.id.toLowerCase().indexOf(kw)>-1;
+});
+}
+searchInput.addEventListener("input",function(){render(getFiltered());});
+function downloadAll(){
+if(btnAll.classList.contains("loading"))return;
+var list=getFiltered();
+if(list.length===0)return;
+btnAll.classList.add("loading");
+btnAllText.textContent="下载中...";
+var i=0;
+function next(){
+if(i>=list.length){
+btnAll.classList.remove("loading");
+btnAllText.textContent="一键全部下载";
+return;
+}
+var a=document.createElement("a");
+a.href=list[i].file;
+a.download=list[i].file;
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+i++;
+setTimeout(next,500);
+}
+next();
+}
+render(levels);
+</script>
+</body>
+</html>
