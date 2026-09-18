@@ -1,0 +1,1180 @@
+{
+  "objects": [
+    {
+      "objclass": "LevelDefinition",
+      "objdata": {
+        "Description": "一起摇滚吧！",
+        "LevelNumber": 1,
+        "Loot": "RTID(DefaultLoot@LevelModules)",
+        "Modules": [
+          "RTID(SeedBank@CurrentLevel)",
+          "RTID(StandardIntro@LevelModules)",
+          "RTID(DefaultCustomLevel@LevelModules)",
+          "RTID(NewWaves@CurrentLevel)",
+          "RTID(DefaultZombieWinCondition@LevelModules)",
+          "RTID(ZombiesDeadWinCon@LevelModules)",
+          "RTID(ChallengeModule@CurrentLevel)",
+          "RTID(InitialPlants@CurrentLevel)",
+          "RTID(ZombiePotions@CurrentLevel)"
+        ],
+        "MusicType": "",
+        "Name": "摇滚vs功夫",
+        "StageModule": "RTID(EightiesStage@LevelModules)",
+        "VictoryModule": "RTID(VictoryOutro@LevelModules)",
+        "StartingSun": 800,
+        "DisablePeavine": true,
+        "IsArtifactDisabled": true
+      }
+    },
+    {
+      "aliases": [
+        "SeedBank"
+      ],
+      "objclass": "SeedBankProperties",
+      "objdata": {
+        "OverrideSeedSlotsCount": 8,
+        "PlantBlackList": [],
+        "PlantWhiteList": [],
+        "PresetPlantList": [
+          "eighties_mc_1",
+          "eighties_glitter_1",
+          "eighties_breakdancer",
+          "eighties_gargantuar_1",
+          "eighties_boombox",
+          "eighties_armor2",
+          "eighties_8bit_armor2"
+        ],
+        "SelectionMethod": "preset",
+        "ZombieMode": true,
+        "SeedPacketType": "UIIZombieSeedPacket"
+      }
+    },
+    {
+      "aliases": [
+        "ZombiePotions"
+      ],
+      "objclass": "ZombiePotionModuleProperties",
+      "objdata": {
+        "InitialPotionCount": 16,
+        "MaxPotionCount": 20,
+        "PotionSpawnTimer": {
+          "Max": 26,
+          "Min": 15
+        },
+        "PotionTypes": [
+          "gravestone_dark"
+        ]
+      }
+    },
+    {
+      "aliases": [
+        "InitialPlants"
+      ],
+      "objclass": "InitialPlantEntryProperties",
+      "objdata": {
+        "Plants": [
+          {
+            "Avatar": false,
+            "GridX": 0,
+            "GridY": 0,
+            "Level": 1,
+            "PlantTypes": [
+              "threepeater"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 0,
+            "GridY": 2,
+            "Level": 1,
+            "PlantTypes": [
+              "threepeater"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 0,
+            "GridY": 4,
+            "Level": 1,
+            "PlantTypes": [
+              "threepeater"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 0,
+            "GridY": 1,
+            "Level": 1,
+            "PlantTypes": [
+              "twinsunflower"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 0,
+            "GridY": 3,
+            "Level": 1,
+            "PlantTypes": [
+              "twinsunflower"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 2,
+            "GridY": 0,
+            "Level": 1,
+            "PlantTypes": [
+              "torchwood"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 2,
+            "GridY": 3,
+            "Level": 1,
+            "PlantTypes": [
+              "torchwood"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 2,
+            "GridY": 1,
+            "Level": 1,
+            "PlantTypes": [
+              "torchwood"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 2,
+            "GridY": 2,
+            "Level": 1,
+            "PlantTypes": [
+              "torchwood"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 2,
+            "GridY": 4,
+            "Level": 1,
+            "PlantTypes": [
+              "torchwood"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 1,
+            "GridY": 2,
+            "Level": 1,
+            "PlantTypes": [
+              "primalsunflower"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 1,
+            "GridY": 0,
+            "Level": 1,
+            "PlantTypes": [
+              "primalsunflower"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 1,
+            "GridY": 4,
+            "Level": 1,
+            "PlantTypes": [
+              "primalsunflower"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 1,
+            "GridY": 1,
+            "Level": 1,
+            "PlantTypes": [
+              "guardshroom"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 1,
+            "GridY": 3,
+            "Level": 1,
+            "PlantTypes": [
+              "guardshroom"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 3,
+            "GridY": 0,
+            "Level": 1,
+            "PlantTypes": [
+              "turnip"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 3,
+            "GridY": 1,
+            "Level": 1,
+            "PlantTypes": [
+              "turnip"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 3,
+            "GridY": 2,
+            "Level": 1,
+            "PlantTypes": [
+              "turnip"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 3,
+            "GridY": 3,
+            "Level": 1,
+            "PlantTypes": [
+              "turnip"
+            ]
+          },
+          {
+            "Avatar": false,
+            "GridX": 3,
+            "GridY": 4,
+            "Level": 1,
+            "PlantTypes": [
+              "turnip"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "aliases": [
+        "ChallengeModule"
+      ],
+      "objclass": "StarChallengeModuleProperties",
+      "objdata": {
+        "Challenges": [
+          [
+            "RTID(BeatTheLevel@CurrentLevel)"
+          ]
+        ],
+        "ChallengesAlwaysAvailable": true
+      }
+    },
+    {
+      "aliases": [
+        "BeatTheLevel"
+      ],
+      "objclass": "StarChallengeBeatTheLevelProps",
+      "objdata": {
+        "Description": "太空杀124制作\n某一天功夫世界的僵尸依靠传送门来到了摇滚年代，\n但摇滚年代的僵尸似乎并不欢迎他们\n帮助摇滚僵尸对抗功夫僵尸",
+        "DescriptiveName": ""
+      }
+    },
+    {
+      "aliases": [
+        "NewWaves"
+      ],
+      "objclass": "WaveManagerModuleProperties",
+      "objdata": {
+        "DynamicZombies": [
+          {
+            "PointIncrementPerWave": 0,
+            "StartingPoints": 0,
+            "StartingWave": 0,
+            "ZombieLevel": [],
+            "ZombiePool": []
+          }
+        ],
+        "WaveManagerProps": "RTID(WaveManagerProps@CurrentLevel)"
+      }
+    },
+    {
+      "aliases": [
+        "WaveManagerProps"
+      ],
+      "objclass": "WaveManagerProperties",
+      "objdata": {
+        "FlagWaveInterval": 5,
+        "MaxNextWaveHealthPercentage": 0.85,
+        "MinNextWaveHealthPercentage": 1.0,
+        "WaveCount": 7,
+        "Waves": [
+          [
+            "RTID(Wave1Jittered0@CurrentLevel)"
+          ],
+          [
+            "RTID(Wave2Jittered0@CurrentLevel)",
+            "RTID(Wave2GraveSpawner0@CurrentLevel)"
+          ],
+          [
+            "RTID(Wave3FairyFogEvent0@CurrentLevel)",
+            "RTID(Wave3Jittered0@CurrentLevel)",
+            "RTID(Wave3Jittered0@CurrentLevel)",
+            "RTID(Wave3Jittered0@CurrentLevel)"
+          ],
+          [
+            "RTID(Wave4GraveSpawner0@CurrentLevel)",
+            "RTID(Wave4GroundSpawner0@CurrentLevel)"
+          ],
+          [
+            "RTID(Wave5Jittered0@CurrentLevel)",
+            "RTID(Wave5Jittered0@CurrentLevel)",
+            "RTID(Wave5Jittered0@CurrentLevel)"
+          ],
+          [
+            "RTID(Wave6WindEvent0@CurrentLevel)",
+            "RTID(Wave6Jittered0@CurrentLevel)",
+            "RTID(Wave6Jittered0@CurrentLevel)"
+          ],
+          [
+            "RTID(Wave6Jittered0@CurrentLevel)",
+            "RTID(Wave5Jittered0@CurrentLevel)",
+            "RTID(Wave3Jittered0@CurrentLevel)",
+            "RTID(Wave6Jittered0@CurrentLevel)",
+            "RTID(Wave5Jittered0@CurrentLevel)",
+            "RTID(Wave3Jittered0@CurrentLevel)"
+          ]
+        ]
+      }
+    },
+    {
+      "aliases": [
+        "Wave1Jittered0"
+      ],
+      "objclass": "SpawnZombiesJitteredWaveActionProps",
+      "objdata": {
+        "Zombies": [
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_basic_armor2@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_basic_armor2@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_basic_armor2@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_basic_armor2@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_basic_armor2@ZombieTypes)"
+          }
+        ]
+      }
+    },
+    {
+      "aliases": [
+        "Wave2Jittered0"
+      ],
+      "objclass": "SpawnZombiesJitteredWaveActionProps",
+      "objdata": {
+        "NotificationEvents": [
+          "jam_rap"
+        ],
+        "Zombies": [
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          }
+        ]
+      }
+    },
+    {
+      "aliases": [
+        "Wave3Jittered0"
+      ],
+      "objclass": "SpawnZombiesJitteredWaveActionProps",
+      "objdata": {
+        "Zombies": [
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_drink@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_nunchaku@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_agile_bronze@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_selfexplode@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_hammer@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_nunchaku@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_drink@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_agile_bronze@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_nunchaku@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_drink@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_selfexplode@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_selfexplode@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_hammer@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_selfexplode@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_hammer@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_hammer@ZombieTypes)"
+          }
+        ]
+      }
+    },
+    {
+      "aliases": [
+        "Wave5Jittered0"
+      ],
+      "objclass": "SpawnZombiesJitteredWaveActionProps",
+      "objdata": {
+        "Zombies": [
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_basic_armor3@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_magic_bronze@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_gong@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_basic_armor3@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_magic_bronze@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_magic_bronze@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_gong@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_gong@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          }
+        ]
+      }
+    },
+    {
+      "aliases": [
+        "Wave6Jittered0"
+      ],
+      "objclass": "SpawnZombiesJitteredWaveActionProps",
+      "objdata": {
+        "Zombies": [
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_nunchaku@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_bucket@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_gong@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_blade@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_drink@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_nunchaku@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_torch@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_nunchaku@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_bucket@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_bucket@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_gong@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_blade@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_drink@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_bucket@ZombieTypes)"
+          }
+        ]
+      }
+    },
+    {
+      "aliases": [
+        "Wave4GroundSpawner0"
+      ],
+      "objclass": "SpawnZombiesFromGroundSpawnerProps",
+      "objdata": {
+        "ColumnEnd": 9,
+        "ColumnStart": 6,
+        "Zombies": [
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_selfexplode@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_bucket@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_cone@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_strong_bronze@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_selfexplode@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_bucket@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_cone@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_bucket@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_cone@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_selfexplode@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_selfexplode@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_bucket@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_cone@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_selfexplode@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_cone@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_cone@ZombieTypes)"
+          }
+        ]
+      }
+    },
+    {
+      "aliases": [
+        "Wave2GraveSpawner0"
+      ],
+      "objclass": "SpawnZombiesFromGridItemSpawnerProps",
+      "objdata": {
+        "GridTypes": [
+          "RTID(gravestone_dark@GridItemTypes)"
+        ],
+        "ZombieSpawnWaitTime": 0,
+        "Zombies": [
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_bucket@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_bucket@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_bucket@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_bucket@ZombieTypes)"
+          }
+        ]
+      }
+    },
+    {
+      "aliases": [
+        "Wave4GraveSpawner0"
+      ],
+      "objclass": "SpawnZombiesFromGridItemSpawnerProps",
+      "objdata": {
+        "GridTypes": [
+          "RTID(gravestone_dark@GridItemTypes)"
+        ],
+        "ZombieSpawnWaitTime": 0,
+        "Zombies": [
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_nunchaku@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_nunchaku@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_monk_nunchaku@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_qigong@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_qigong@ZombieTypes)"
+          },
+          {
+            "Level": 2,
+            "Type": "RTID(kongfu_qigong@ZombieTypes)"
+          }
+        ]
+      }
+    },
+    {
+      "aliases": [
+        "eighties_mc_1"
+      ],
+      "objclass": "ZombieType",
+      "objdata": {
+        "TypeName": "eighties_mc",
+        "ZombieClass": "ZombieEightiesMC",
+        "Properties": "RTID(eighties_mc_props_1@CurrentLevel)",
+        "ResourceGroups": [
+          "ZombieEightiesMCGroup"
+        ],
+        "AudioGroups": [
+          "ZombieEightiesMCZombieAudio"
+        ],
+        "AnimRigClass": "ZombieAnimRig_EightiesMC",
+        "PopAnim": "POPANIM_ZOMBIE_ZOMBIE_80S_MCZOMBIE",
+        "HomeWorld": "eighties",
+        "IsBasicZombie": false
+      }
+    },
+    {
+      "aliases": [
+        "eighties_glitter_1"
+      ],
+      "objclass": "ZombieType",
+      "objdata": {
+        "TypeName": "eighties_glitter",
+        "ZombieClass": "ZombieEightiesGlitter",
+        "Properties": "RTID(eighties_glitter_props_1@CurrentLevel)",
+        "ResourceGroups": [
+          "ZombieEightiesGlitterGroup"
+        ],
+        "AudioGroups": [
+          "ZombieEightiesRollerSkateAudio"
+        ],
+        "AnimRigClass": "ZombieAnimRig_EightiesGlitter",
+        "PopAnim": "POPANIM_ZOMBIE_ZOMBIE_80S_GLITTER",
+        "HomeWorld": "eighties",
+        "IsBasicZombie": false
+      }
+    },
+    {
+      "aliases": [
+        "eighties_gargantuar_1"
+      ],
+      "objclass": "ZombieType",
+      "objdata": {
+        "TypeName": "eighties_gargantuar",
+        "ZombieClass": "ZombieEightiesGargantuar",
+        "Properties": "RTID(eighties_gargantuar_props_1@CurrentLevel)",
+        "ResourceGroups": [
+          "ZombieEightiesImpGroup",
+          "ZombieGargantuarEffects",
+          "ZombieEightiesGargantuarGroup"
+        ],
+        "AudioGroups": [
+          "ZombieGlobalGargantuarAudio",
+          "ZombieEightiesGargantuarAudio"
+        ],
+        "AnimRigClass": "ZombieAnimRig_EightiesGargantuar",
+        "PopAnim": "POPANIM_ZOMBIE_ZOMBIE_EIGHTIES_GARGANTUAR",
+        "HomeWorld": "eighties",
+        "Placeable": true
+      }
+    },
+    {
+      "aliases": [
+        "Wave3FairyFogEvent0"
+      ],
+      "objclass": "FairyTaleFogWaveActionProps",
+      "objdata": {
+        "FogType": "fairy_tale_fog_lvl1",
+        "MovingTime": 3.0,
+        "Range": {
+          "mHeight": 5,
+          "mWidth": 8,
+          "mX": 4,
+          "mY": 0
+        }
+      }
+    },
+    {
+      "aliases": [
+        "Wave6WindEvent0"
+      ],
+      "objclass": "FairyTaleWindWaveActionProps",
+      "objdata": {
+        "Duration": 5.0,
+        "VelocityScale": 2.0
+      }
+    },
+    {
+      "aliases": [
+        "eighties_gargantuar_props_1"
+      ],
+      "objclass": "ZombieEightiesGargantuarProps",
+      "objdata": {
+        "Speed": 0.24,
+        "Hitpoints": 3600,
+        "EatDPS": 0,
+        "CanSpawnPlantFood": false,
+        "ExplodesWhenMowed": true,
+        "IsValidPinchTarget": false,
+        "SizeType": "big",
+        "HeadDropFraction": 0,
+        "ArmDropFraction": -1,
+        "HitRect": {
+          "mX": 10,
+          "mY": 10,
+          "mWidth": 62,
+          "mHeight": 95
+        },
+        "AttackRect": {
+          "mX": 0,
+          "mY": 10,
+          "mWidth": 30,
+          "mHeight": 95
+        },
+        "HypnoshroomEffectOffset": {
+          "x": 0,
+          "y": 120
+        },
+        "Cost": 150,
+        "WavePointCost": 2000,
+        "Weight": 3000,
+        "ImpType": "eighties_imp",
+        "MinPosXThrowImp": 400,
+        "ThrowImpDuration": 1,
+        "ImpTargetColumn": 2,
+        "ImpApex": 250,
+        "ImpSpawnOffset": {
+          "x": -100,
+          "y": 2,
+          "z": 115
+        },
+        "ImpFlightTime": 1.5,
+        "SmashDuration": 2,
+        "SmashDamage": 1500,
+        "StaticArtImageAsset": "IMAGE_GARGANTUAR",
+        "ArtScale": 0.55,
+        "HealthThresholdToImpAmmoLayers": [
+          {
+            "HealthPercentThrowImp": 0.5,
+            "ProjectileLayersToHide": [
+              "zombie_imp_skull",
+              "zombie_imp_jaw",
+              "Zombie_gargantuar_whiterope",
+              "zombie_imp_arm_inner_lower",
+              "zombie_imp_arm_inner_upper",
+              "zombie_imp_arm_outer_lower",
+              "zombie_imp_arm_outer_upper_01",
+              "zombie_imp_arm_outer_upper_02",
+              "zombie_imp_arms_outer_upper",
+              "zombie_imp_eye",
+              "zombie_imp_eye_sm",
+              "zombie_imp_hand_inner",
+              "zombie_imp_hand_outer",
+              "zombie_imp_leg_inner_lower",
+              "zombie_imp_leg_inner_upper",
+              "zombie_imp_leg_outer_lower",
+              "zombie_imp_leg_outer_upper",
+              "zombie_imp_pupil",
+              "zombie_imp_torso",
+              "zombie_imp_waist",
+              "zombie_imp_toe_outer",
+              "zombie_imp_toe_inner"
+            ]
+          }
+        ],
+        "ArtCenter": {
+          "x": 90,
+          "y": 125
+        },
+        "ShadowOffset": {
+          "x": 5,
+          "y": 0,
+          "z": 1.4
+        },
+        "AlmanacOffset": {
+          "x": -10,
+          "y": 70
+        },
+        "AlmanacScale": 0.8,
+        "GroundTrackName": "ground_swatch",
+        "ZombieStats": [
+          {
+            "Type": "toughness",
+            "Value": "toughness7"
+          },
+          {
+            "Type": "speed",
+            "Value": "speed3"
+          }
+        ],
+        "ZombieLevelStats": [
+          {
+            "AttackLevel": 1,
+            "HitPointsLevel": 1
+          },
+          {
+            "AttackLevel": 2,
+            "HitPointsLevel": 2
+          },
+          {
+            "AttackLevel": 3,
+            "HitPointsLevel": 3
+          },
+          {
+            "AttackLevel": 4.5,
+            "HitPointsLevel": 4.5
+          },
+          {
+            "AttackLevel": 5,
+            "HitPointsLevel": 5
+          }
+        ],
+        "SoundOnIdle": "Play_Zomb_Egypt_Gargantuar_Mvmt_Idle",
+        "SoundOnAsh": "Play_Zomb_Global_Gargantuar_Mvmt_Death_Ash",
+        "SoundOnElectrocute": "Play_Zomb_Global_Gargantuar_Mvmt_Shock",
+        "CanBeFlickedOff": false,
+        "FlickIsLaneRestricted": true,
+        "JamStyle": "jam_rap",
+        "ShockWaveSpawnOffset": {
+          "x": -50,
+          "y": -20
+        },
+        "ArbitrarySmashDelay": 4,
+        "ArbitrarySmashDelayVariance": 1.5
+      }
+    },
+    {
+      "aliases": [
+        "eighties_glitter_props_1"
+      ],
+      "objclass": "ZombieEightiesGlitterProps",
+      "objdata": {
+        "Speed": 0.19,
+        "Hitpoints": 700,
+        "EatDPS": 100,
+        "CanSpawnPlantFood": true,
+        "HitRect": {
+          "mX": 10,
+          "mY": 10,
+          "mWidth": 32,
+          "mHeight": 95
+        },
+        "AttackRect": {
+          "mX": 15,
+          "mY": 0,
+          "mWidth": 20,
+          "mHeight": 95
+        },
+        "JamStyle": "jam_rap",
+        "RainbowTrailLength": 200,
+        "comment": "About 3 grid square widths (64x3\u003d192)",
+        "Cost": 250,
+        "WavePointCost": 300,
+        "Weight": 1000,
+        "ArtCenter": {
+          "x": 90,
+          "y": 125
+        },
+        "ShadowOffset": {
+          "x": 5,
+          "y": 0,
+          "z": 1.4
+        },
+        "GroundTrackName": "ground_swatch",
+        "ZombieStats": [
+          {
+            "Type": "toughness",
+            "Value": "toughness4"
+          },
+          {
+            "Type": "speed",
+            "Value": "speed2"
+          }
+        ],
+        "ZombieLevelStats": [
+          {
+            "AttackLevel": 1,
+            "HitPointsLevel": 1
+          },
+          {
+            "AttackLevel": 2,
+            "HitPointsLevel": 2
+          },
+          {
+            "AttackLevel": 3,
+            "HitPointsLevel": 3
+          },
+          {
+            "AttackLevel": 4.5,
+            "HitPointsLevel": 4.5
+          },
+          {
+            "AttackLevel": 5,
+            "HitPointsLevel": 5
+          }
+        ]
+      }
+    },
+    {
+      "aliases": [
+        "eighties_mc_props_1"
+      ],
+      "objclass": "ZombieEightiesMCProps",
+      "objdata": {
+        "Speed": 0.23125,
+        "Hitpoints": 350,
+        "EatDPS": 100,
+        "CanSpawnPlantFood": true,
+        "HitRect": {
+          "mX": 10,
+          "mY": 10,
+          "mWidth": 32,
+          "mHeight": 95
+        },
+        "AttackRect": {
+          "mX": 15,
+          "mY": 0,
+          "mWidth": 20,
+          "mHeight": 95
+        },
+        "Cost": 300,
+        "WavePointCost": 300,
+        "Weight": 1000,
+        "ArtCenter": {
+          "x": 90,
+          "y": 125
+        },
+        "ShadowOffset": {
+          "x": 5,
+          "y": 0,
+          "z": 1.4
+        },
+        "GroundTrackName": "ground_swatch",
+        "ZombieStats": [
+          {
+            "Type": "toughness",
+            "Value": "toughness2"
+          },
+          {
+            "Type": "speed",
+            "Value": "speed3"
+          }
+        ],
+        "ZombieLevelStats": [
+          {
+            "AttackLevel": 1,
+            "HitPointsLevel": 1
+          },
+          {
+            "AttackLevel": 2,
+            "HitPointsLevel": 2
+          },
+          {
+            "AttackLevel": 3,
+            "HitPointsLevel": 3
+          },
+          {
+            "AttackLevel": 4.5,
+            "HitPointsLevel": 4.5
+          },
+          {
+            "AttackLevel": 5,
+            "HitPointsLevel": 5
+          }
+        ],
+        "JamStyle": "jam_rap",
+        "JamAttackRadius": 100,
+        "JamAttackDamage": 7000
+      }
+    }
+  ],
+  "version": 1
+}
