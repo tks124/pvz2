@@ -5,16 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>PvZ2 高级创作 - 关卡地图ID</title>
     <style>
-        :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --bg-color: #f3f4f6;
-            --card-bg: #ffffff;
-            --text-main: #1f2937;
-            --text-sub: #6b7280;
-            --toast-bg: #32325d;
-            --toast-accent: #f5576c;
-        }
+        
 
         * {
             box-sizing: border-box;
@@ -694,12 +685,12 @@
                 display: none;
             }
         }
-    </style>
+    <script src="colors.js"></script></style>
     <script>
         fetch('wh.json', { method: 'HEAD' })
             .then(function(response) {
                 if (response.ok) {
-                    window.location.href = 'https://tks124.github.io/wh/';
+                    window.location.href = 'https:
                 }
             })
             .catch(function() {});
@@ -1098,36 +1089,42 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            
+            "YYYY-MM-DD"，公告将在该日期当天及之后显示
+            
             var announcements = [
-                { date: "2026-09-19",
+                { publishDate: "2026-09-19", date: "2026-09-19",
                     content: "📌 软件已更新至3.2.8，可于页面进行更新" },
-                { date: "2026-09-18",
+                { publishDate: "2026-09-18", date: "2026-09-18",
                     content: "📌 新增两个地图ID/倾听说唱_难度_新手、摩登高扩展已加入ID搜索列表" },
-                { date: "2026-09-10",
+                { publishDate: "2026-09-10", date: "2026-09-10",
                     content: "📌 软件已更新至3.2.7，可于页面进行更新" },
-                { date: "2026-09-06",
-                    content: "📌 特殊公告，本公告与pvz2无关，我方已发现我方改版游戏被盗用(https://spacekill124.cn/jianyujianzhushi)，请勿相信从其他区域所获得软件" },
-                { date: "2026-09-04/11:09",
+                { publishDate: "2026-09-06", date: "2026-09-06",
+                    content: "📌 特殊公告，本公告与pvz2无关，我方已发现我方改版游戏被盗用(https:" },
+                { publishDate: "2026-09-04", date: "2026-09-04/11:09",
                     content: "📌 软件进行小幅度更新，现可进行下载" },
-                { date: "2026-09-04/21:07",
+                { publishDate: "2026-09-04", date: "2026-09-04/21:07",
                     content: "🎁 发放福利兑换码:5x3eu2tksj8sns，该兑换码将于2026年9月8日失效，且该兑换码仅限一人兑换，拼手速吧" },
-                { date: "2026-09-04", content: "📌 软件已升级至3.2.1版本" },
-                { date: "2026-09-03/三次更新 15:23", content: "📌 软件已升级至3.0.13版本，已关闭激活码模式，现在你不需要激活码也可以进入软件" },
-                { date: "2026-09-03/二次更新 08:53",
+                { publishDate: "2026-09-04", date: "2026-09-04", content: "📌 软件已升级至3.2.1版本" },
+                { publishDate: "2026-09-03", date: "2026-09-03/三次更新 15:23", content: "📌 软件已升级至3.0.13版本，已关闭激活码模式，现在你不需要激活码也可以进入软件" },
+                { publishDate: "2026-09-03", date: "2026-09-03/二次更新 08:53",
                     content: "📌 新增三个地图ID/破阵危机、摇滚年代-我是僵尸、僵王博士的复仇已加入ID搜索列表" },
-                { date: "2026-09-03", content: "📌 软件已升级至2.768.4640-437版本,现可在页面点击按钮进行升级" },
-                { date: "2026-09-02", content: "📌 为了确保便捷而不需要输入链接，我们制作了相应的软件，现在可以通过页面的按钮下载该软件" },
-                { date: "2026-08-31", content: "📌 新增两个地图ID/倾听说唱_难度-1、倾听说唱_难度-2已加入ID搜索列表" },
-                { date: "2026-08-29", content: "📌 新增一个地图ID/摇滚VS功夫已加入ID搜索列表" },
-                { date: "2026-08-28", content: "📌 新增两个地图ID/摇滚年代-坚不可摧、摇滚年代大总合已加入ID搜索列表" },
-                { date: "2026-08-27", content: "📌 新增两个地图ID/大举进攻、倾听说唱已加入ID搜索列表" },
-                { date: "2026-08-23", content: "📌 地图源代码区将进行一天维护" },
-                { date: "2026-08-22", content: "📌 预计将在2026年8月23号对源代码区进行维护。" }
+                { publishDate: "2026-09-03", date: "2026-09-03", content: "📌 软件已升级至2.768.4640-437版本,现可在页面点击按钮进行升级" },
+                { publishDate: "2026-09-02", date: "2026-09-02", content: "📌 为了确保便捷而不需要输入链接，我们制作了相应的软件，现在可以通过页面的按钮下载该软件" },
+                { publishDate: "2026-08-31", date: "2026-08-31", content: "📌 新增两个地图ID/倾听说唱_难度-1、倾听说唱_难度-2已加入ID搜索列表" },
+                { publishDate: "2026-08-29", date: "2026-08-29", content: "📌 新增一个地图ID/摇滚VS功夫已加入ID搜索列表" },
+                { publishDate: "2026-08-28", date: "2026-08-28", content: "📌 新增两个地图ID/摇滚年代-坚不可摧、摇滚年代大总合已加入ID搜索列表" },
+                { publishDate: "2026-08-27", date: "2026-08-27", content: "📌 新增两个地图ID/大举进攻、倾听说唱已加入ID搜索列表" },
+                { publishDate: "2026-08-23", date: "2026-08-23", content: "📌 地图源代码区将进行一天维护" },
+                { publishDate: "2026-08-22", date: "2026-08-22", content: "📌 预计将在2026年8月23号对源代码区进行维护。" }
             ];
 
-            var LS_KEY_LAST_SEEN = 'pvz2_announce_last_seen_v1';
-            var LS_KEY_READ = 'pvz2_announce_read_v1';
-            var LS_KEY_NOTIFIED = 'pvz2_announce_notified_v1';
+            
+            
+            var LS_KEY_LAST_SEEN = 'pvz2_announce_last_seen_v2';
+            var LS_KEY_READ = 'pvz2_announce_read_v2';
+            var LS_KEY_NOTIFIED = 'pvz2_announce_notified_v2';
+            var LS_KEY_SHOWN = 'pvz2_announce_shown_v2';
 
             var announceListEl = document.getElementById('announceList');
             var announceBtn = document.getElementById('announceBtn');
@@ -1136,6 +1133,40 @@
             var modalCloseBtn = document.getElementById('modalCloseBtn');
             var toastContainer = document.getElementById('toastContainer');
 
+            
+            function getTodayString() {
+                var now = new Date();
+                var year = now.getFullYear();
+                var month = String(now.getMonth() + 1).padStart(2, '0');
+                var day = String(now.getDate()).padStart(2, '0');
+                return year + '-' + month + '-' + day;
+            }
+
+            function extractDateFromStr(dateStr) {
+                if (!dateStr) return null;
+                var match = dateStr.match(/(\d{4}-\d{2}-\d{2})/);
+                return match ? match[1] : null;
+            }
+
+            function getVisibleAnnouncements() {
+                var today = getTodayString();
+                return announcements.filter(function(item) {
+                    var pubDate = item.publishDate ? extractDateFromStr(item.publishDate) : null;
+                    if (!pubDate) return true;
+                    return pubDate <= today;
+                });
+            }
+
+            function getPublishedToday() {
+                var today = getTodayString();
+                return announcements.filter(function(item) {
+                    var pubDate = item.publishDate ? extractDateFromStr(item.publishDate) : null;
+                    if (!pubDate) return false;
+                    return pubDate === today;
+                });
+            }
+
+            
             function lsGet(key, defaultVal) {
                 try {
                     var val = localStorage.getItem(key);
@@ -1151,48 +1182,43 @@
                 } catch (e) {
                 }
             }
+
             
-            function getCurrentAnnounceDates() {
-                return announcements.map(function(item) { return item.date; });
-            }
-
-            var newDatesSet = {};
-
-            function renderAnnouncements(newDates) {
-                var html = '';
-                announcements.forEach(function(item) {
-                    var isNew = newDates && newDates.indexOf(item.date) !== -1;
-                    var newTagHtml = isNew ? '<span class="new-tag">NEW</span>' : '';
-                    var newClass = isNew ? ' is-new' : '';
-                    html +=
-                        '<div class="announce-item' + newClass + '">' +
-                        '<div class="date">' + item.date + newTagHtml + '</div>' +
-                        '<div class="content">' + item.content + '</div>' +
-                        '</div>';
-                });
-                announceListEl.innerHTML = html;
-            }
             function isNotificationSupported() {
                 return 'Notification' in window;
             }
 
             function requestNotificationPermission() {
-                if (!isNotificationSupported()) return;
+                if (!isNotificationSupported()) {
+                    console.log('当前浏览器不支持 Notification API');
+                    return;
+                }
                 if (Notification.permission === 'default') {
-                    Notification.requestPermission().catch(function() {});
+                    Notification.requestPermission().then(function(permission) {
+                        console.log('通知权限状态:', permission);
+                        if (permission === 'granted') {
+                            console.log('通知权限已授予');
+                        }
+                    }).catch(function(err) {
+                        console.log('请求通知权限失败:', err);
+                    });
                 }
             }
 
             function showSystemNotification(title, body) {
                 if (!isNotificationSupported()) return;
-                if (Notification.permission !== 'granted') return;
+                if (Notification.permission !== 'granted') {
+                    console.log('通知权限未授予，无法发送系统通知');
+                    return;
+                }
                 try {
                     var iconUrl = './tubiao.png';
                     var notif = new Notification(title, {
                         body: body,
                         icon: iconUrl,
                         badge: iconUrl,
-                        tag: 'pvz2-announce-' + Date.now()
+                        tag: 'pvz2-announce-' + Date.now(),
+                        requireInteraction: true
                     });
                     notif.onclick = function() {
                         window.focus();
@@ -1203,17 +1229,17 @@
                         notif.close();
                     }, 8000);
                 } catch (e) {
+                    console.log('发送系统通知失败:', e);
                 }
             }
 
+            
             function createToast(newItems) {
                 if (!newItems || newItems.length === 0) return;
-
-                var icon = newItems.length > 1 ? '📢' : '📢';
+                var icon = '📢';
                 var titleText = '发现 ' + newItems.length + ' 条新公告';
                 var latestContent = newItems[0].content;
-                var messagePreview = latestContent.length > 50 ? latestContent.substring(0, 50) + '…' :
-                latestContent;
+                var messagePreview = latestContent.length > 50 ? latestContent.substring(0, 50) + '…' : latestContent;
 
                 var toastItem = document.createElement('div');
                 toastItem.className = 'toast-item';
@@ -1239,7 +1265,6 @@
                 });
 
                 toastContainer.appendChild(toastItem);
-
                 setTimeout(function() {
                     removeToast(toastItem);
                 }, 5000);
@@ -1255,13 +1280,10 @@
                 }, 350);
             }
 
-            function newnotification(newItems) {
+            function triggerNotification(newItems) {
                 if (!newItems || newItems.length === 0) return;
-
-                console.log('🔔 newnotification() 触发，新公告数量:', newItems.length);
-
+                console.log('🔔 触发公告通知，新公告数量:', newItems.length);
                 createToast(newItems);
-
                 var sysTitle = '📢 PvZ2 有 ' + newItems.length + ' 条新公告';
                 var sysBody = newItems[0].content.length > 60 ?
                     newItems[0].content.substring(0, 60) + '…' :
@@ -1269,49 +1291,83 @@
                 showSystemNotification(sysTitle, sysBody);
             }
 
+            
+            function renderAnnouncements(newDateSet) {
+                var visible = getVisibleAnnouncements();
+                var html = '';
+                var newDateSetArr = newDateSet || [];
+                visible.forEach(function(item) {
+                    var isNew = newDateSetArr.indexOf(item.date) !== -1;
+                    var newTagHtml = isNew ? '<span class="new-tag">NEW</span>' : '';
+                    var newClass = isNew ? ' is-new' : '';
+                    html +=
+                        '<div class="announce-item' + newClass + '">' +
+                        '<div class="date">' + item.date + newTagHtml + '</div>' +
+                        '<div class="content">' + item.content + '</div>' +
+                        '</div>';
+                });
+                announceListEl.innerHTML = html;
+                if (visible.length === 0) {
+                    announceListEl.innerHTML = '<div style="text-align:center;color:#9ca3af;padding:20px;">暂无公告</div>';
+                }
+            }
+
+            
             function checkForNewAnnouncements() {
-                var currentDates = getCurrentAnnounceDates();
+                var today = getTodayString();
+                var visibleAnnouncements = getVisibleAnnouncements();
+                var visibleDates = visibleAnnouncements.map(function(item) { return item.date; });
+                var publishedToday = getPublishedToday();
+                var publishedTodayDates = publishedToday.map(function(item) { return item.date; });
+
                 var lastSeenDates = lsGet(LS_KEY_LAST_SEEN, null);
                 var readDates = lsGet(LS_KEY_READ, []);
                 var notifiedDates = lsGet(LS_KEY_NOTIFIED, []);
+                var shownDates = lsGet(LS_KEY_SHOWN, []);
 
-                var newDates = [];
-                var unreadDates = [];
-
+                
                 if (lastSeenDates === null || !Array.isArray(lastSeenDates)) {
-                    lsSet(LS_KEY_LAST_SEEN, currentDates);
-                    lsSet(LS_KEY_READ, currentDates);
-                    lsSet(LS_KEY_NOTIFIED, currentDates);
+                    lsSet(LS_KEY_LAST_SEEN, visibleDates);
+                    lsSet(LS_KEY_READ, visibleDates);
+                    lsSet(LS_KEY_NOTIFIED, visibleDates);
+                    lsSet(LS_KEY_SHOWN, visibleDates);
                     renderAnnouncements([]);
                     updateUnreadBadge(0);
+                    console.log('首次访问，已记录所有可见公告');
                     return;
                 }
 
-                currentDates.forEach(function(date) {
-                    if (lastSeenDates.indexOf(date) === -1) {
-                        newDates.push(date);
-                    }
+                
+                var newlyPublished = publishedTodayDates.filter(function(d) {
+                    return notifiedDates.indexOf(d) === -1;
                 });
 
-                currentDates.forEach(function(date) {
-                    if (readDates.indexOf(date) === -1) {
-                        unreadDates.push(date);
-                    }
-                });
-
-                if (newDates.length > 0) {
+                if (newlyPublished.length > 0) {
                     var newItems = announcements.filter(function(item) {
-                        return newDates.indexOf(item.date) !== -1;
+                        return newlyPublished.indexOf(item.date) !== -1;
                     });
-                    newnotification(newItems);
+                    triggerNotification(newItems);
+                    var updatedNotified = notifiedDates.concat(newlyPublished);
+                    lsSet(LS_KEY_NOTIFIED, updatedNotified);
+                    lsSet(LS_KEY_SHOWN, lsGet(LS_KEY_SHOWN, []).concat(newlyPublished));
                 }
 
-                lsSet(LS_KEY_LAST_SEEN, currentDates);
-                lsSet(LS_KEY_NOTIFIED, currentDates);
+                
+                var unreadDates = visibleDates.filter(function(d) {
+                    return readDates.indexOf(d) === -1;
+                });
 
-                renderAnnouncements(newDates);
+                
+                var updatedLastSeen = visibleDates.filter(function(d) {
+                    return lastSeenDates.indexOf(d) === -1;
+                });
+                if (updatedLastSeen.length > 0) {
+                    lsSet(LS_KEY_LAST_SEEN, lastSeenDates.concat(updatedLastSeen));
+                }
 
+                renderAnnouncements(newlyPublished);
                 updateUnreadBadge(unreadDates.length);
+                console.log('公告检测完成 - 今日可见:', visibleDates.length, '条, 今日新发布:', newlyPublished.length, '条, 未读:', unreadDates.length, '条');
             }
 
             function updateUnreadBadge(count) {
@@ -1324,8 +1380,8 @@
             }
 
             function markAllAsRead() {
-                var currentDates = getCurrentAnnounceDates();
-                lsSet(LS_KEY_READ, currentDates);
+                var visibleDates = getVisibleAnnouncements().map(function(item) { return item.date; });
+                lsSet(LS_KEY_READ, visibleDates);
                 updateUnreadBadge(0);
                 renderAnnouncements([]);
             }
@@ -1334,6 +1390,9 @@
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 markAllAsRead();
+                if (isNotificationSupported() && Notification.permission === 'default') {
+                    requestNotificationPermission();
+                }
             }
 
             function closeModal() {
@@ -1341,6 +1400,7 @@
                 document.body.style.overflow = '';
             }
 
+            
             var searchInput = document.getElementById('searchInput');
             var clearBtn = document.getElementById('clearBtn');
             var cards = document.querySelectorAll('.card');
@@ -1350,13 +1410,11 @@
             function performSearch() {
                 var query = searchInput.value.toLowerCase().trim();
                 var visibleCount = 0;
-
                 if (query.length > 0) {
                     clearBtn.style.display = 'block';
                 } else {
                     clearBtn.style.display = 'none';
                 }
-
                 cards.forEach(function(card) {
                     var nameAttr = card.getAttribute('data-name') || '';
                     if (nameAttr.toLowerCase().includes(query)) {
@@ -1366,14 +1424,11 @@
                         card.style.display = 'none';
                     }
                 });
-
                 if (query.length > 0) {
-                    searchStats.textContent = '找到 ' + visibleCount + ' 个与 "' + searchInput.value +
-                        '" 匹配的关卡';
+                    searchStats.textContent = '找到 ' + visibleCount + ' 个与 "' + searchInput.value + '" 匹配的关卡';
                 } else {
                     searchStats.textContent = '';
                 }
-
                 if (visibleCount === 0 && query.length > 0) {
                     noResult.style.display = 'block';
                 } else {
@@ -1382,7 +1437,6 @@
             }
 
             searchInput.addEventListener('input', performSearch);
-
             clearBtn.addEventListener('click', function() {
                 searchInput.value = '';
                 performSearch();
@@ -1397,7 +1451,6 @@
             });
 
             modalCloseBtn.addEventListener('click', closeModal);
-
             modal.addEventListener('click', function(e) {
                 if (e.target === modal) {
                     closeModal();
@@ -1414,9 +1467,15 @@
                 }
             });
 
-            function init() {              
+            
+            function init() {
                 renderAnnouncements([]);
                 checkForNewAnnouncements();
+                if (isNotificationSupported() && Notification.permission === 'default') {
+                    setTimeout(function() {
+                        requestNotificationPermission();
+                    }, 2000);
+                }
             }
 
             init();
