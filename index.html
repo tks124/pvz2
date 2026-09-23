@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -687,15 +688,7 @@
         }
 </style>
     <script src="colors.js"></script>
-    <script>
-        fetch('wh.json', { method: 'HEAD' })
-            .then(function(response) {
-                if (response.ok) {
-                    window.location.href = 'https:
-                }
-            })
-            .catch(function() {});
-    </script>
+    <!-- 已移除不完整的wh.json跳转脚本 -->
     <script>
         (function() {
             var iconUrl = './tubiao.png';
@@ -744,8 +737,8 @@
             <a class="btn-map" href="zhuozhe">
                 📜 作者列表
             </a>
-            <a class="btn-map" href="https://github.com/tks124/pvz2-apk/releases/download/v3.2.9/pvz2_v3.2.9.APK" target="_blank">
-                不想老是手动输链接？点击这里下载手机软件版/v3.2.9
+            <a class="btn-map" href="https://github.com/tks124/pvz2-apk/releases/download/v3.2.8/pvz2_v3.2.8.APK" target="_blank">
+                不想老是手动输链接？点击这里下载手机软件版/v3.2.8
             </a>
         </div>
 
@@ -1090,19 +1083,15 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            
-            "YYYY-MM-DD"，公告将在该日期当天及之后显示
-            
             var announcements = [
-                { publishDate: "2026-10-"01, date: "2026-10-01", content: "🎉 今天是10月1日，祝大家国庆快乐" },
-                { publishDate: "2026-09-23", date: "2026-09-23", content: "📌 软件已更新至3.2.9，可于页面进行更新" },
+            { publishDate: "2026-10-01", date: "2026-10-01", content: "🎉 今天是国庆节，祝大家国庆快乐" },
+            { publishDate: "2026-09-23", date: "2026-09-23", content: "📌 软件已更新至3.2.9，可于页面进行更新" },
                 { publishDate: "2026-09-19", date: "2026-09-19", content: "📌 软件已更新至3.2.8，可于页面进行更新" },
                 { publishDate: "2026-09-18", date: "2026-09-18", content: "📌 新增两个地图ID/倾听说唱_难度_新手、摩登高扩展已加入ID搜索列表" },
                 { publishDate: "2026-09-10", date: "2026-09-10", content: "📌 软件已更新至3.2.7，可于页面进行更新" },
                 { publishDate: "2026-09-06", date: "2026-09-06", content: "📌 特殊公告，本公告与pvz2无关，我方已发现我方改版游戏被盗用(https:" },
                 { publishDate: "2026-09-04", date: "2026-09-04/11:09", content: "📌 软件进行小幅度更新，现可进行下载" },
-                { publishDate: "2026-09-04", date: "2026-09-04/21:07", content: "🎁 发放福利兑换码:5x3eu2tksj8sns，该兑换码将于2026年9月8日失效，且该兑换码仅限一人兑换，拼手速吧" },
-                { publishDate: "2026-09-04", date: "2026-09-04", content: "📌 软件已升级至3.2.1版本" },
+                { publishDate: "2026-09-04", date: "2026-09-04/21:07", content: "🎁 发放福利兑换码:5x3eu2tksj8sns，该兑换码将于2026年9月8日失效，且该兑换码仅限一人兑换，拼手速吧" }, { publishDate: "2026-09-04", date: "2026-09-04", content: "📌 软件已升级至3.2.1版本" },
                 { publishDate: "2026-09-03", date: "2026-09-03/三次更新 15:23", content: "📌 软件已升级至3.0.13版本，已关闭激活码模式，现在你不需要激活码也可以进入软件" },
                 { publishDate: "2026-09-03", date: "2026-09-03/二次更新 08:53",
                     content: "📌 新增三个地图ID/破阵危机、摇滚年代-我是僵尸、僵王博士的复仇已加入ID搜索列表" },
