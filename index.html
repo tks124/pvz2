@@ -3,100 +3,36 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>PvZ2 高级创作 - 关卡地图ID</title>
+    <title>PvZ2 高级创作 - 地图源代码</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: -apple-system, sans-serif; background-color: #f3f4f6; color: #1f2937; line-height: 1.6; padding: 20px; min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; }
-        header { position: relative; text-align: center; margin-bottom: 40px; padding-top: 20px; }
-        h1 { font-size: 2.5rem; background: linear-gradient(to right, #667eea, #764ba2); -webkit-background-clip: text; color: transparent; margin-bottom: 10px; }
-        .subtitle { color: #6b7280; font-size: 1.1rem; }
-        .announce-btn { position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 6px; padding: 10px 18px; background: linear-gradient(135deg, #f093fb, #f5576c); color: #fff; border: none; border-radius: 50px; font-size: 0.95rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4); transition: transform 0.25s; z-index: 100; }
-        .announce-btn:hover { transform: translateY(-50%) scale(1.04); }
-        .search-wrapper { max-width: 600px; width: 90%; margin: 0 auto 20px auto; position: relative; }
-        .search-box { width: 100%; padding: 14px 50px 14px 24px; font-size: 16px; border: 2px solid #e5e7eb; border-radius: 50px; outline: none; transition: all 0.3s; background: #fff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-        .search-box:focus { border-color: #667eea; box-shadow: 0 0 0 4px rgba(102,126,234,0.2); }
-        .clear-btn { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #9ca3af; cursor: pointer; display: none; font-size: 1.2rem; background: none; border: none; }
-        .btn-group { text-align: center; margin-bottom: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-        .btn-map { display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); cursor: pointer; border: none; }
-        .btn-upload { background: linear-gradient(135deg, #10b981, #059669); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
-        .card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
-        .card-header { background: linear-gradient(135deg, #667eea, #764ba2); padding: 15px; text-align: center; color: white; font-weight: bold; font-size: 1.2rem; }
-        .card-body { padding: 20px; flex-grow: 1; }
-        .info-group { margin-bottom: 15px; padding: 10px; background-color: #f9fafb; border-radius: 8px; border-left: 4px solid #667eea; }
-        .info-label { display: block; font-size: 0.85rem; color: #667eea; font-weight: 600; margin-bottom: 4px; }
-        .info-value { font-family: 'Courier New', monospace; font-size: 1.1rem; color: #374151; word-break: break-all; }
-        .no-result { grid-column: 1 / -1; text-align: center; padding: 40px; color: #6b7280; font-size: 1.2rem; display: none; }
-        footer { text-align: center; margin-top: 50px; color: #6b7280; font-size: 0.9rem; }
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; display: none; justify-content: center; align-items: center; }
-        .modal-overlay.active { display: flex; }
-        .modal-box { background: #fff; width: 90%; max-width: 400px; border-radius: 16px; padding: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-        .modal-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; text-align: center; }
-        .form-group { margin-bottom: 12px; }
-        .form-group label { display: block; font-size: 0.9rem; color: #6b7280; margin-bottom: 4px; }
-        .form-group input { width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 8px; outline: none; }
-        .form-group input:focus { border-color: #667eea; }
-        .modal-actions { display: flex; gap: 10px; margin-top: 20px; }
-        .modal-actions button { flex: 1; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; color: #fff; }
-        .btn-cancel { background: #9ca3af; }
-        .btn-confirm { background: #10b981; }
-        @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
-            .grid { grid-template-columns: 1fr; }
-            .announce-btn { position: relative; top: 0; transform: none; margin-bottom: 15px; }
-            .announce-btn:hover { transform: scale(1.04); }
-        }
+        .container { max-width: 800px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; padding-top: 20px; }
+        h1 { font-size: 2rem; background: linear-gradient(to right, #667eea, #764ba2); -webkit-background-clip: text; color: transparent; margin-bottom: 10px; }
+        .subtitle { color: #6b7280; font-size: 1rem; }
+        .back-btn { display: inline-block; margin-bottom: 20px; padding: 10px 20px; background: #fff; color: #667eea; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .list-group { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .list-item { padding: 15px 20px; border-bottom: 1px solid #f3f4f6; display: flex; justify-content: space-between; align-items: center; }
+        .list-item:last-child { border-bottom: none; }
+        .item-info h3 { font-size: 1.1rem; margin-bottom: 4px; color: #374151; }
+        .item-info p { font-size: 0.85rem; color: #6b7280; }
+        .download-btn { padding: 8px 16px; background: #667eea; color: white; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: bold; transition: background 0.2s; }
+        .download-btn:hover { background: #764ba2; }
+        .empty-msg { text-align: center; padding: 40px; color: #6b7280; }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <div class="container">
+        <a href="index.html" class="back-btn">← 返回地图ID</a>
         <header>
-            <button class="announce-btn" id="announceBtn">
-                <span>🔔</span> 公告
-            </button>
-            <h1>
-                植物大战僵尸2 - 高级创作地图ID<br />
-                <span style="font-size: 1rem; -webkit-text-fill-color: #6b7280;">如有其他问题，请联系管理员 linjiayuan@spacekill124.cn</span>
-            </h1>
-            <p class="subtitle">快速查找并复制您需要的关卡地图 ID</p>
+            <h1>地图源代码下载</h1>
+            <p class="subtitle">所有玩家上传并通过审核的地图源代码</p>
         </header>
 
-        <div class="search-wrapper">
-            <input class="search-box" id="searchInput" placeholder="搜索关卡名称…" type="text" />
-            <button class="clear-btn" id="clearBtn">✕</button>
-        </div>
-
-        <div class="btn-group">
-            <button class="btn-map btn-upload" id="openUploadBtn">📤 上传地图 ID</button>
-            <a class="btn-map" href="dituyuandaima.html">🗺️ 地图源代码</a>
-            <a class="btn-map" href="zhuozhe.html">📜 作者列表</a>
-            <a class="btn-map" href="https://github.com/tks124/pvz2-apk/releases/download/v3.2.9/pvz2_v3.2.9.APK" target="_blank">📱 下载软件版</a>
-        </div>
-
-        <div class="grid" id="cardGrid">
-            <div id="loadingMsg" style="text-align:center;padding:40px;color:#6b7280;grid-column:1/-1;">正在加载地图数据...</div>
-            <div class="no-result" id="noResult">未找到，请更换关键词</div>
-        </div>
-
-        <footer>©2026.太空杀124.pvz2.spacekill124.cn</footer>
-    </div>
-
-    <div class="modal-overlay" id="uploadModal">
-        <div class="modal-box">
-            <div class="modal-title">上传地图数据</div>
-            <div class="form-group"><label>地图名称</label><input type="text" id="upName" placeholder="输入关卡名称"></div>
-            <div class="form-group"><label>Android ID</label><input type="text" id="upAndroid" placeholder="输入安卓ID"></div>
-            <div class="form-group"><label>iOS ID</label><input type="text" id="upIos" placeholder="输入iOS ID"></div>
-            <div class="form-group"><label>作者名</label><input type="text" id="upAuthor" placeholder="输入你的作者名"></div>
-            <div class="form-group"><label>其他补充</label><input type="text" id="upOther" placeholder="选填"></div>
-            <div class="form-group"><label>源代码文件（选填）</label><input type="file" id="upFile"></div>
-            <p id="upStatus" style="font-size:12px;text-align:center;color:#ef4444;min-height:16px;"></p>
-            <div class="modal-actions">
-                <button class="btn-cancel" onclick="closeUpload()">取消</button>
-                <button class="btn-confirm" onclick="submitUpload()">提交审核</button>
-            </div>
+        <div class="list-group" id="sourceList">
+            <div class="empty-msg">加载中...</div>
         </div>
     </div>
 
@@ -105,169 +41,37 @@
         const SUPABASE_ANON_KEY = "sb_publishable_bV150rxd0EeojJEL53Cgwg_Lc3ZUkoU";
         const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        let allCards = [];
+        async function loadSources() {
+            const { data, error } = await supabaseClient
+                .from('pvz2_maps')
+                .select('*')
+                .eq('status', 'approved')
+                .neq('source_url', '')
+                .order('id', {ascending: true});
 
-        document.addEventListener('DOMContentLoaded', async function() {
-            try {
-                const res = await fetch('./ID.json');
-                const data = await res.json();
-                data.forEach(item => {
-                    allCards.push({
-                        name: item.name,
-                        androidId: item.androidId,
-                        iosId: item.iosId,
-                        isFromDB: false
-                    });
-                });
-            } catch (e) { }
-
-            try {
-                const { data, error } = await supabaseClient.from('pvz2_maps').select('*').eq('status', 'approved').order('created_at', {ascending: false});
-                if (!error && data) {
-                    data.forEach(item => {
-                        allCards.push({
-                            name: item.name,
-                            androidId: item.android_id,
-                            iosId: item.ios_id,
-                            isFromDB: true
-                        });
-                    });
-                }
-            } catch (e) { }
-
-            renderCards();
-        });
-
-        function renderCards() {
-            const grid = document.getElementById('cardGrid');
-            const loading = document.getElementById('loadingMsg');
-            if(loading) loading.remove();
-
-            if (allCards.length === 0) {
-                grid.innerHTML = '<div style="text-align:center;padding:40px;grid-column:1/-1;">暂无数据</div>';
+            const listEl = document.getElementById('sourceList');
+            
+            if (error || !data || data.length === 0) {
+                listEl.innerHTML = '<div class="empty-msg">暂无源代码可供下载</div>';
                 return;
             }
 
             let html = '';
-            allCards.forEach(item => {
+            data.forEach((item, index) => {
+                const fileName = `pvz2.lv${index + 1}.lvx`;
                 html += `
-                <div class="card" data-name="${item.name}">
-                    <div class="card-header">🎉 地图ID</div>
-                    <div class="card-body">
-                        <p style="margin-bottom: 15px;">你好 <strong>用户</strong>,<br />以下就是地图ID：</p>
-                        <div class="info-group">
-                            <span class="info-label">📝 关卡名称</span>
-                            <div class="info-value">${item.name}</div>
-                        </div>
-                        <div class="info-group">
-                            <span class="info-label">🤖 Android 关卡 ID</span>
-                            <div class="info-value">${item.androidId}</div>
-                        </div>
-                        <div class="info-group">
-                            <span class="info-label">🍎 iOS 关卡 ID</span>
-                            <div class="info-value">${item.iosId}</div>
-                        </div>
+                <div class="list-item">
+                    <div class="item-info">
+                        <h3>${item.name}</h3>
+                        <p>作者: ${item.author_name} | 文件: ${fileName}</p>
                     </div>
+                    <a href="${item.source_url}" download="${fileName}" class="download-btn" target="_blank">下载源代码</a>
                 </div>`;
             });
-            grid.innerHTML = html;
-            setupSearch();
+            listEl.innerHTML = html;
         }
 
-        function setupSearch() {
-            const searchInput = document.getElementById('searchInput');
-            const clearBtn = document.getElementById('clearBtn');
-            const noResult = document.getElementById('noResult');
-            const cards = document.querySelectorAll('.card');
-
-            searchInput.addEventListener('input', function() {
-                const query = this.value.toLowerCase().trim();
-                let visibleCount = 0;
-                clearBtn.style.display = query.length > 0 ? 'block' : 'none';
-
-                cards.forEach(card => {
-                    const name = card.getAttribute('data-name').toLowerCase();
-                    if (name.includes(query)) {
-                        card.style.display = 'flex';
-                        visibleCount++;
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-                noResult.style.display = (visibleCount === 0 && query.length > 0) ? 'block' : 'none';
-            });
-
-            clearBtn.addEventListener('click', function() {
-                searchInput.value = '';
-                searchInput.dispatchEvent(new Event('input'));
-                searchInput.focus();
-            });
-        }
-
-        document.getElementById('openUploadBtn').addEventListener('click', () => {
-            document.getElementById('uploadModal').classList.add('active');
-        });
-
-        function closeUpload() {
-            document.getElementById('uploadModal').classList.remove('active');
-        }
-
-        async function submitUpload() {
-            const name = document.getElementById('upName').value.trim();
-            const android = document.getElementById('upAndroid').value.trim();
-            const ios = document.getElementById('upIos').value.trim();
-            const author = document.getElementById('upAuthor').value.trim();
-            const other = document.getElementById('upOther').value.trim();
-            const file = document.getElementById('upFile').files[0];
-            const statusEl = document.getElementById('upStatus');
-
-            if (!name || !android || !ios || !author) {
-                statusEl.textContent = "名称、ID和作者名必须填写！";
-                return;
-            }
-
-            statusEl.textContent = "正在上传...";
-            statusEl.style.color = "#6b7280";
-
-            let sourceUrl = "";
-            if (file) {
-                const fileExt = file.name.split('.').pop();
-                const fileName = `${Date.now()}_${Math.random().toString(36).slice(2)}.${fileExt}`;
-                const uploadRes = await supabaseClient.storage.from('pvz2_sources').upload(fileName, file);
-                if (uploadRes.error) {
-                    statusEl.textContent = "文件上传失败: " + uploadRes.error.message;
-                    return;
-                }
-                const publicUrl = supabaseClient.storage.from('pvz2_sources').getPublicUrl(fileName).data.publicUrl;
-                sourceUrl = publicUrl;
-            }
-
-            const { data, error } = await supabaseClient.from('pvz2_maps').insert([{
-                name: name, 
-                android_id: android, 
-                ios_id: ios, 
-                author_name: author, 
-                other_info: other, 
-                source_url: sourceUrl, 
-                status: 'pending'
-            }]).select().single();
-
-            if (error) {
-                statusEl.textContent = "提交失败: " + error.message;
-            } else {
-                statusEl.textContent = "提交成功，请等待审核！";
-                statusEl.style.color = "#10b981";
-                setTimeout(() => {
-                    closeUpload();
-                    document.getElementById('upName').value = '';
-                    document.getElementById('upAndroid').value = '';
-                    document.getElementById('upIos').value = '';
-                    document.getElementById('upAuthor').value = '';
-                    document.getElementById('upOther').value = '';
-                    document.getElementById('upFile').value = '';
-                }, 1500);
-            }
-        }
+        window.addEventListener('DOMContentLoaded', loadSources);
     </script>
 </body>
 </html>
